@@ -24,6 +24,26 @@ Express:
 
 
 ------------------------------
+Node JS
+
+---------
+
+>> npm init
+
+>> npm i express
+
+
+
+
+code Re-usauability  - function
+Modularity           - Admin, User Module, Login 
+Redability           - 
+
+git config --global user.name "username" 
+
+git config --global user.email "email address"
+
+
 
 
 
