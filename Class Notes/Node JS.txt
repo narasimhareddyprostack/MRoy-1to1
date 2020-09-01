@@ -1,0 +1,31 @@
+Node JS
+-------
+5 Days - Node JS  & Express
+25 Days - React
+------------------
+MERN Stack
+2 Application - Deploy to Cloud(AWS/Azure)
+  - 2/3
+  GITHUB
+-----------------------------------------
+LMS (3 Module - User Module, LMS, Payment Gateway)  - GIT LAB 
+
+Resume Preparation
+Interview Preparation
+------------------------------------------------------
+
+Arrow Function
+
+
+Node JS - its platform/evn to build server side application
+          or JavaScript Runtime Env
+		  
+Express:
+
+
+------------------------------
+
+
+
+
+
