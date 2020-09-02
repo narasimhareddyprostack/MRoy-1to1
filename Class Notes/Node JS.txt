@@ -45,6 +45,27 @@ git config --global user.email "email address"
 
 
 
+----------------------------------------------------
+
+Node JS Module
+     What is module?
+	 
+Node JS - 
+	Core Module : os, fs, http, 
+	3rd Module/NPM Modules  : express, mongodb, react, angular, vue, cassandra, mysql,
+	custom module:
+	 
+-------------------------------
+Write code: Win (DLL), MAC 
+
+OS - OS,
+
+---------------------------------
+
+MRoy - 
+
+
+>npm i express
 
 
 
