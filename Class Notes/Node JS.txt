@@ -51,8 +51,10 @@ Node JS Module
      What is module?
 	 
 Node JS - 
-	Core Module : os, fs, http, 
-	3rd Module/NPM Modules  : express, mongodb, react, angular, vue, cassandra, mysql,
+	Core Module : os, fs, http, path, util, event
+
+	3rd Module/NPM Modules  : express, mongodb, react, angular, vue, cassandra, mysql,nodemon
+
 	custom module:
 	 
 -------------------------------
@@ -67,6 +69,32 @@ MRoy -
 
 >npm i express
 
+----------------------------------
+> node server.JS
+> nodemon server.js  / server will up and run automaticcalyy, when you changing the code
+> npm start
+> npm run dev
+
+> npm run test
+> npm run prod
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "start": "nodemon server1.js",
+    "dev" : "nodemon server.js",
+    "test1":"nodemon app.js"
+    
+  },
 
 
+  -----------------------
+
+
+  node server.js
+  nodemon server.js
+  
+  npm start
+  npm run test
+  npm run dev
+  
 

@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "start": "nodemon server1.js",
+    "dev" : "nodemon server.js",
+    "test1":"nodemon app.js"
+    
   },
   "author": "",
   "license": "ISC",
