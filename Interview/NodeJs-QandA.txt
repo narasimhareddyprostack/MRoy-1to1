@@ -1,0 +1,22 @@
+Q 1. Main differences between req.query and req.param in Express
+     How are Both different from each other
+     When to use then in what cases
+
+Desc : Suppose android sends a POST request -> Intention is to send (Key,Value) to client and 
+       the server should perform a database query based on the value in the server and 
+       return JSON response
+
+       or 
+
+       Suppose a client sends say(Key,value) pair in the request ........ which one to use ?
+
+
+Sol : req.query will return a JS object after the query string is parsed.
+
+      /user?name=tom&age=55 - req.query would yield {name:"tom", age: "55"}
+
+      and 
+
+      req.params will return parameters in the matched route. If your route is /user/:id and 
+      you make a request to /user/5 - req.params would yield {id: "5"}
+
