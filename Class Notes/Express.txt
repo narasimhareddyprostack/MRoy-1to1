@@ -1,0 +1,43 @@
+Express JS
+
+jQuery: The Write Less, Do More, JavaScript Library.
+
+Write less code, do me : its Node JS Web application framework
+
+Why Expres JS?
+
+Creating the Server?
+
+Reading Data?
+Reading Data from Json?
+Reading Data from Database?
+
+Routing?
+What is Meaning Route?
+
+Question?
+
+What is Node JS?
+
+Callback function?
+
+arrow function?
+
+
+FLIPKART.com/search?q=iphone&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off
+
+Root is - FLIPKART.com
+
+/search
+
+/serach  ? Q = iphone
+
+
+(req,res) =>{
+ res.send("Welcome to FLIPKART")
+
+}
+
+How to read ulr parameters?
+How to read Query parameters?
+
