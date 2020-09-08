@@ -6,8 +6,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/order", (req, res) => {
-  res.send(req.query);
-  //res.send(req.query.name);
+   const obj = req.query;
+   console.log(obj);
+   res.send(obj);
+  //res.send(req.query.id);
 });
 
 app.get("/order/:id", (req, res) => {

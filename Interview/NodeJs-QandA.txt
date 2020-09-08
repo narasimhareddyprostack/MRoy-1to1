@@ -2,7 +2,7 @@ Q 1. Main differences between req.query and req.param in Express
      How are Both different from each other
      When to use then in what cases
 
-Desc : Suppose android sends a POST request -> Intention is to send (Key,Value) to client and 
+Desc : Suppose android/web sends a POST request -> Intention is to send (Key,Value) to client and 
        the server should perform a database query based on the value in the server and 
        return JSON response
 
