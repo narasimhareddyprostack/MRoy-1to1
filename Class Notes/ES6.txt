@@ -1,0 +1,10 @@
+1.Classes - OOP
+2.Rest parameter
+3.Template String
+4.Arrowing
+5.const and let
+6. Array helper funciton(forEach, map, filter, every, some, reduce,weakmap, find)
+7. Default function Arguments
+8.destuction
+9.promices
+
