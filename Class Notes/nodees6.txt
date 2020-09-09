@@ -1,0 +1,10 @@
+1. npm i express @babel/core @babel/register @babel/preset-env babel-polyfill
+2. babel configuration file (.babelrc)
+   {
+       "presets":[]
+   }
+
+3.start.js
+  give the entry of the application(app.js)
+
+4. run start.js
