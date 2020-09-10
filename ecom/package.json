@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon start.js"
+    "start": "nodemon start.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/register": "^7.11.5",
     "babel-polyfill": "^6.26.0",
+    "ejs": "^3.1.5",
     "express": "^4.17.1"
   }
 }
