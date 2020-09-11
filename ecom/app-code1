@@ -1,0 +1,48 @@
+import express from "express";
+//es6
+var app = express();
+//static path setting
+app.use(express.static(__dirname + "/public"));
+app.set("views", "./src/view");
+app.set("view engine", "ejs");
+const menu = [
+  { link: "/", name: "Home" },
+  { link: "/products", name: "Products" },
+  { link: "/orders", name: "Orders" },
+];
+app.get("/", (req, res) => {
+  res.render("index", {
+    message: "Welcome to ECOM",
+    menu: menu,
+  });
+});
+
+app.get("/orders", (req, res) => {
+  res.render("orders", {
+    message: "Order Page",
+    menu: menu,
+  });
+});
+
+app.get("/products", (req, res) => {
+  res.render("products", {
+    message: "Product Page",
+    menu: menu,
+  });
+});
+app.get("/orders/details", (req, res) => {
+  res.render("order_details", {
+    message: "Order Details Page",
+    menu: menu,
+  });
+});
+app.get("products/details", (req, res) => {
+  res.render("product_details", {
+    message: "Product Details Page",
+    menu: menu,
+  });
+});
+
+app.listen(8000, (err) => {
+  console.log(`Server Running on Port: ${8000}`);
+});
