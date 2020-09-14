@@ -1,0 +1,25 @@
+NodeJS ES6
+NodeJS - EJS Template
+
+
+1)Easy binding
+2)SPA
+
+We Will go for JS Frameworks ie (React, Angular,Vue)
+
+SQL vs NOSQL
+
+Mongo DB  - 2 Class 
+
+Node JS App - Routing 50%
+
+Static Data - NodeJS - EJS
+Data: MongoDB/REST API --> Node App -- EJS/React
+-------------------------------------------------
+3 Days
+MongoDB  - 2
+Node Js Routing
+Mongo DB with Nodejs --> EJS
+-----------------------------
+React 
+

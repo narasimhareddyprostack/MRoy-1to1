@@ -1,0 +1,55 @@
+1)Download from Mongodb website --> Community Edition server
+2) Install -- > next
+3) Path (not set)
+4) Mongodb Compass - UI
+How to run 
+Step 1: Navigate to c:\bin
+>mongod  - Running Mongodb server
+> mongo  - Running client
+REPL env
+Retrive - Eval, print, loop
+>show dbs
+
+>use admin
+switched to selected dbs
+
+Display data
+>db.<collectionname>.find()
+
+>db.admin_user.find()
+>db.admin_user.find().pretty()
+
+>db.admin_user.find({name:'Manasi'})
+
+Select * from <tableName>;
+
+select * from admin_user where name=Manasi;
+ 
+             C               R            U                   D
+SQL          create      select     update                   del
+
+No SQL       insert()    find()        update()                 del() 
+
+I want to retrive data from data>collectionname
+
+>user admin_user
+>db.admin_user.find()
+
+
+-----------------------------------------
+SQL              NoSQL
+Database        Database
+tables          Collections
+row             Document  { name:'narasima' }
+column          field
+--------------------------------------------------
+
+
+list of dbs
+>show dbs
+list of collections 
+>use <databaename>
+>show collections
+
+display docs/row/data
+>db.collectionname.find()
