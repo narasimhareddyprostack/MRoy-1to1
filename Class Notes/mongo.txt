@@ -74,6 +74,8 @@ NoSQL(Mongo DB)
 C R U  D
 
 After Mongodb Installation we need to set path.
+Pc - > Properties -> Adv Sys setting - > Env Variable --> System Variable -> setect Path - >Edit 
+Add Mongodb server path 
 
 Database Name : ecom
 Collection : produdcts (group of Document nothigs collection)
