@@ -53,3 +53,59 @@ list of collections
 
 display docs/row/data
 >db.collectionname.find()
+----------------------------------------------
+SQL 
+
+1) Schema Based ( Define Database structure, and Table creation -> we need define columns and its data type )
+2) Not Application Driven
+3) Memorey Wastage is very high
+
+NoSQL(Mongo DB)
+1)Open Source and Document based , Schema less Database), 
+  Its store the data in the form of JSON.
+---------------------------------------
+1)Open Source
+2)Less Memory/space Wastage
+3)Schema less 
+4)Application Driven Database - CRUD Javascript methods
+5)highly scalable? and flexible
+
+
+C R U  D
+
+After Mongodb Installation we need to set path.
+
+Database Name : ecom
+Collection : produdcts (group of Document nothigs collection)
+-----------------------
+[
+        {
+        p_id:1,
+        Name:'Iphone 5'
+        No_Products:10
+        },
+     {
+     p_id:2,
+     Name:'Samsung'
+     No_Products:100
+    },
+     {
+     p_id:3,
+     Name:'Manasi'
+     No_Products:20
+    },
+]
+
+
+-----------------------
+How to set Mongodb Class Path in Windows?
+
+How to server (Mongodb)?
+>mongod
+
+How to start Mongo Client?
+>mongo
+
+Database -> Collections -> group of Document
+
+How to create a Database in Mongodb?
