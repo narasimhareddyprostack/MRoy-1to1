@@ -1,0 +1,25 @@
+Project Desc: Movie & Restraurent App
+Desc: Node JS, Expess , EJS/React
+------------------------------------
+Step 1: Node Js Seed App with ES6
+
+      npm i @babel/core 
+            @babel/register 
+            @babel/preset-env 
+            babel-polyfill 
+            express 
+            mongodb 
+            chalk 
+            morgan 
+            ejs
+        
+
+Step 2: Integrate Bootstrap Template
+
+Step 3: EJS Template , Route Part
+
+Step 4: REST API, MongoDB (Local)
+
+Step 5: Mongo cloud
+
+Step 6: Deploy AWS/Heroku
