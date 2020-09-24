@@ -21,15 +21,17 @@ app.use(express.static(__dirname + "/public"));
 app.set("views", "./src/view");
 app.set("view engine", "ejs");
 
-const menu = [
-  { link: "/", name: "Home" },
-  { link: "/movies", name: "Movies ALL" },
-  { link: "/restraurents", name: "Restra All" },
-  { link: "contact-us", name: "Contact US" },
-];
-
 app.get("/", (req, res) => {
-  res.render("index", { message: "Movie Application", menu: menu });
+  mongo.connect(urlc, (err, db) => {
+    if (err) throw err;
+    const manasidb = db.db("MovieDB");
+    manasidb
+      .collection("menu")
+      .find({})
+      .toArray((err, data) => {
+        res.render("index", { message: "Movie Application", menu: data });
+      });
+  });
 });
 
 app.use("/movies", movieRouter);
