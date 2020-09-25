@@ -5,9 +5,11 @@ import mongodb from "mongodb";
 const mongo = mongodb.MongoClient;
 
 const url = "mongodb://localhost:27017";
-//const urlc =
-("mongodb+srv://prostack:movie123@cluster0.e4or2.mongodb.net/MovieDB?retryWrites=true&w=majority");
-// () 
+const urlm =
+  "mongodb+srv://manasi1234:manasi1234@devconnector-0augo.mongodb.net/DevConnector?retryWrites=true&w=majority";
+//const url =("mongodb+srv://prostack:movie123@cluster0.e4or2.mongodb.net/<dataname>?retryWrites=true&w=majority");
+
+// ()
 // ( () { }  () )
 const movieRouter = express.Router();
 
@@ -24,8 +26,8 @@ movieRouter.route("/").get((req, res) => {
   (async function mongo() {
     let mongoClient;
     try {
-      console.log("<<<<");
-      mongoClient = await mongodb.connect(url);
+      console.log("<<<< - in Movie Router");
+      mongoClient = await mongodb.connect(urlm);
       const db = await mongoClient.db(database_name);
       const col = await db.collection("MovieData");
       const data = await col.find({}).toArray();
@@ -40,12 +42,27 @@ movieRouter.route("/").get((req, res) => {
   })();
 });
 
-movieRouter.route("/details").get((req, res) => {
-  res.render("movie-details", {
-    message: "Movie Details",
-    menu: menu,
-    moviesApi: moviesApi,
-  });
+movieRouter.route("/details/:id").get((req, res) => {
+  const id = req.param("id");
+  // const name = req.param();
+  console.log("Inside Details Page", id);
+  (async function mongo() {
+    let mongoClient;
+    try {
+      console.log("<<<<");
+      mongoClient = await mongodb.connect(urlm);
+      const db = await mongoClient.db(database_name);
+      const col = await db.collection("MovieData");
+      const data = await col.findOne({ _id: id });
+      res.render("movie-details", {
+        message: "Movie Details",
+        menu: menu,
+        moviesApi: data,
+      });
+    } catch (err) {
+      throw err;
+    }
+  })();
 });
 
 module.exports = movieRouter;

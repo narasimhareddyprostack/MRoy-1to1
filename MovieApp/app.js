@@ -7,8 +7,8 @@ const path = require("path");
 import mongodb from "mongodb";
 const mongo = mongodb.MongoClient;
 
-const urlc = 'mongodb://localhost:27017';
-//const urlc =
+//const urlc = 'mongodb://localhost:27017';
+const urlc =
   "mongodb+srv://prostack:movie123@cluster0.e4or2.mongodb.net/MovieDB?retryWrites=true&w=majority";
 import movieRouter from "./src/routes/movieRouter";
 import restraurentRouter from "./src/routes/restraurentRoute";
@@ -35,5 +35,5 @@ app.get("/", (req, res) => {
 app.use("/movies", movieRouter);
 app.use("/restraurents", RestraurentRouter);
 app.listen(7000, (err) => {
-  console.log(`${chalk.red(`Server Running onabort...7000`)}`);
+  console.log(`${chalk.blue(`Server Running onabort...7000`)}`);
 });

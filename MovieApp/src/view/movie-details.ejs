@@ -99,7 +99,7 @@
     </div>
 
     <div class="container">
-      <% for(let i=0;i<moviesApi.length;i++){ %>
+      
       <div class="row">
         <div class="col-md-12">
           <div class="panel">
@@ -111,27 +111,23 @@
                   <a class="story-title" href="#"
                     ><img
                       alt=""
-                      src="<%= moviesApi[i].imageUrl %>"
+                      src="<%= moviesApi.imageUrl %>"
                       style="width: 100px; height: 100px"
                       class="img-square"
                   /></a>
                 </div>
                 <div class="col-md-10 col-sm-9">
-                  <h3><%= moviesApi[i].name %></h3>
+                  <h3><%= moviesApi.name %></h3>
                   <div class="row">
                     <div class="col-xs-9">
                       <h4>
                         <span class="label label-default"
-                          >  <%= moviesApi[i].rate %> </span
+                          >  <%= moviesApi.rate %> </span
                         >
                       </h4>
                       <h4>
-                        <small
-                          style="font-family: courier, 'new courier'"
-                          class="text-muted"
-                          >2 hours ago ||
-                          <a href="#" class="text-muted">Read More</a></small
-                        >
+                      
+                        
                       </h4>
                     </div>
                     <div class="col-xs-3"></div>
@@ -150,7 +146,7 @@
         </div>
         <!--/col-12-->
       </div>
-      <% } %>
+      
 
     </div>
 
