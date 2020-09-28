@@ -45,7 +45,7 @@ movieRouter.route("/").get((req, res) => {
 movieRouter.route("/details/:id").get((req, res) => {
   const id = req.param("id");
   // const name = req.param();
-  console.log("Inside Details Page", id);
+  console.log("Today Friday", id);
   (async function mongo() {
     let mongoClient;
     try {
