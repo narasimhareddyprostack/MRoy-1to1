@@ -1,0 +1,54 @@
+Installation process for React
+Using : npm
+>npm create-react-app  -g
+>create-react-app ecom
+>cd ecom
+>npm start
+
+using : npx
+
+>npx create-react-app ecom
+>cd ecom
+>npm start
+
+using: CDN links of React and Babel
+
+SPA: single page application?
+
+Loading the all the components first. Next request onwords
+It will reload, data will fetch.
+---------
+page/It will not refresh every time.
+Rendered/fetch required info/component/data.
+
+
+index.html --> index.js  - app.js 
+
+index.html  - Serving as main template
+index.js    - main file/root file of the applicaiton
+app.js      -
+
+
+ES6 - Class, import, => all browser will not support es6 syntax
+
+Before build the application, 
+we need to transpile/preset - with help of babel js
+
+Bundled? bundling/ web packing ?
+
+Webpack  - buildling project.
+
+ 
+ 
+function component
+-------------------
+ - Return one element
+ 
+ 
+class component
+====================
+ - should extends React.Component
+ - min one method required ie render()
+ - render method , return one and only element
+ - you want access any properties use , this.props/this.x.user
+ 

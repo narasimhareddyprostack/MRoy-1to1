@@ -6,7 +6,6 @@ function App() {
   return (
     <>
       <Order user="Manasi" loc="WB" />
-      <Order user="Narasimha" loc="KA" />
     </>
   );
 }
