@@ -10,8 +10,36 @@
       crossorigin
       src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
     ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
+    <script type="text/babel">
+      function App() {
+        var h1tag = (
+          <>
+            <Order user="Manasi" loc="WB" />
+            <SecondOrder />
+          </>
+        );
+        return h1tag;
+      }
+      function Order(props) {
+        return (
+          <div>
+            <h1> Order Created By....: {props.user} </h1>{" "}
+            <h2>Delivered @:{props.loc} </h2>{" "}
+          </div>
+        );
+      }
+
+      class SecondOrder extends React.Component {
+        render() {
+          return <h3> Please give me feed Back </h3>;
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
   </body>
 </html>

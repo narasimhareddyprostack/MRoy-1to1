@@ -1,12 +1,29 @@
 import React from "react";
 import "./App.css";
-import Order from "./Order";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import Products from "./Components/Products/Products";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <>
-      <Order user="Manasi" loc="WB" />
-    </>
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <Header />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <Products />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <Footer />
+        </div>
+      </div>
+    </div>
   );
 }
 

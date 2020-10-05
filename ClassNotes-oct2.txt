@@ -1,0 +1,22 @@
+Developer life - 
+--------------------------
+variable/properties
+function/methods
+Class
+Object
+--------------------------
+functional Component?
+
+Class Component ? 
+
+React Application Development?
+
+Class is very very imp
+
+Application - functional Component
+
+If you want build complete Application we required Model
+
+class?
+ES6 Concept
+import and export mandatory?
