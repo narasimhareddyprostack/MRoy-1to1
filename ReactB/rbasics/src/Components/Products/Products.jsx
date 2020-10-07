@@ -4,10 +4,13 @@ import ProductList from "./ProductList.jsx";
 import { Container, Row, Col } from "reactstrap";
 
 const Products = () => {
+  const addProd = (data) =>{
+    console.log(data)
+  }
   return (
     <Row>
       <Col>
-        <ProductForm />
+        <ProductForm addProd={addProd}/>
       </Col>
       <Col>
         <ProductList />

@@ -2,7 +2,7 @@ import React from "react";
 const Footer = (props) => (
   <>
     <hr />
-    <small>&copy; PSA</small>
+    <small>&copy; PSA</small> 
   </>
 );
 export default Footer;
