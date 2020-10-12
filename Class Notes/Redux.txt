@@ -1,0 +1,77 @@
+1)Redux with Javascript
+2)React with Redux
+3)vue.js with Redux
+-------------------
+Redux
+-----
+A Predictable State Container for JS Apps?
+
+State Container?
+-----------------------------------------
+State?
+Session?            vs      State
+
+Brower variable             application variable
+-------------------------------------------
+varialbe -  let ,const, variable
+            scope -- local, global
+			
+			
+Store -- collection state values 
+--------------------------------
+
+React Applicaiton/ Applicaiton
+Component? class , functional
+building block of componnet 
+
+in Class ( Prperties, methods)
+in Funciton( variable)
+---------------------------------
+class one{
+  inc = state+1
+}
+      
+class two{
+  inc = state+2
+}
+problem?
+How to maintain the state as global?
+
+any redux,flux, redux saga, redux-thunk
+------------------
+React is library
+Angular is framework
+
+-------------------------------------------------
+Redux
+-----------
+Actions
+Reducers
+Store
+
+
+View ==> Action ==> Reducers ==> Store ==> View
+
+Component ==> Action ==> Reducers ==>Store ==>view
+
+problem?
+Component ==> Store ==> Component
+Mainitan the state is problem?
+
+Redux?  A R  S
+        Action Reducers Store
+
+Action?
+
+Reducers?
+
+Store?
+		
+
+
+			
+
+
+
+
+
