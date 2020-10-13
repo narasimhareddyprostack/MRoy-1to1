@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Redux Example</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.min.js"
+      integrity="sha512-P36ourTueX/PrXrD4Auc1kVLoTE7bkWrIrkaM0IG2X3Fd90LFgTRogpZzNBssay0XOXhrIgudf4wFeftdsPDiQ=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>Add More Products</h1>
+    <hr />
+    <h2 id="h2Counter"></h2>
+    <button id="incrButton">+</button>
+    <button id="decrButton">-</button>
+    <script>
+      var h2Counter = document.getElementById("h2Counter");
+      var incrButton = document.getElementById("incrButton");
+      var decrButton = document.getElementById("decrButton");
+
+      var incrAction = {
+        type: "INCR",
+      };
+      var decrAction = {
+        type: "DECR",
+      };
+
+      function counterReducer(state, action) {
+        if (action.type === "INCR") return state + 1;
+        else if (action.type === "DECR") return state - 1;
+      }
+      const store = Redux.createStore(counterReducer);
+
+      var counter = 0;
+      function render() {
+        h2Counter.innerHTML = counter;
+      }
+      render();
+      incrButton.onclick = () => {
+        store.dispatch(incrAction);
+        render();
+      };
+      decrButton.onclick = () => {
+        store.dispatch(decrAction);
+        render();
+      };
+    </script>
+  </body>
+</html>
