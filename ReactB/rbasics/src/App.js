@@ -1,16 +1,17 @@
 import React from "react";
 import "./App.css";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
-import Products from "./Components/Products/Products";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { FormText } from "reactstrap";
-import FormEx from "./FormEx";
+//import Header from "./Components/Header/Header";
+//import Footer from "./Components/Footer/Footer";
+//import Products from "./Components/Products/Products";
+//import "bootstrap/dist/css/bootstrap.min.css";
+//import { FormText } from "reactstrap";
+//import FormEx from "./FormEx";
+import NavBar from "./Components/NavBar";
 
 function App() {
   return (
     <>
-      <FormEx />
+      <NavBar />
     </>
   );
 }

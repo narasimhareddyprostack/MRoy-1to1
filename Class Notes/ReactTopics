@@ -1,0 +1,67 @@
+Basic Section : 1
+React Application with create-react-appp
+React Application with Javascript + HTML
+React Components
+Redux  - Introduction 
+Redux -  Javascript
+
+Section 2:
+React Component
+React Component Styling
+React Component Communication
+
+React Component (Props, State)
+React Virtual DOM
+
+React HOC
+
+Section 3:
+Hooks Basics
+React Hooks
+
+Section 4:
+HTTP, Routing
+API Calls
+
+------------------------------
+
+React Components
+
+What is Component?
+--- Piece of code/ block code /file for specific task.
+What is React Component?
+
+--
+1) Class Components
+   -- class keywords and extends React.Components
+   -- it has one method is requied, is render() { }
+   -- In render() {} - it should return one element(JSX elements) 
+   -- If want avialable to other places, we need to exports
+      -- export default <ComponentName>
+
+2) Function Components  -- 16.8 v completely its React Hooks
+   --- function <funcitonName>
+   -- it should return one element ie JSX element
+
+Note: While creating a class Component or Function Component we need to naming rules.
+      --  PascalCase <CardData>
+      -- PascalCase is a naming convention in which the first letter of each word in a compound word is capitalized
+
+------------------------------------------------------------------------
+
+Styling(applying CSS/ cascading/rending the styles to React JS elements)
+
+How to apply the Styling?
+
+1) Class Component
+   CSS styles : 1) inline 2) internal 3) external CSS
+
+   Note: We are applying styles to JSX element, not HTML.
+   class - className
+   <br>  - <br/>
+           <Form/>
+   styles
+   background-color  - backgroundColor 
+
+2) Function Component
+   CSS styles : 1) inline 2) internal 3) external CSS
