@@ -1,5 +1,6 @@
-1)Redux with Javascript
-2)React with Redux
+1)Redux with Javascript 
+2)React with Redux (redux, react-redux,readuct-thunk)
+
 3)vue.js with Redux
 -------------------
 Redux
@@ -62,10 +63,60 @@ Redux?  A R  S
         Action Reducers Store
 
 Action?
-
+-----------------------
+Javascript Object with minimum one property ie type
+var AddCrt  = {
+type:'addCart'
+data:{ titile:'Hello World'}
+}
+var delCart =
+{
+type:'deleteCart'
+data:{ titile:'Hello World'}
+}
 Reducers?
+-------------
+pure Javascript function, two args: state, action
+state :  current global application state (redux)
+action:  action.type, return the value(new state)
+if type is not maches, return the current value
+-----------------------------
+function cardReducer(state,action){
+if(action.type == deleteCart) {
+return 
+}
+if(action.type == addCart) {
+return 
+}
 
+}
 Store?
+--------
+application one store, has state value. nothing but a data type/Object.
+
+
+How to create a store in Redux?
+---------------------------------
+const store = Redux.createStore(<cartReducer>)
+store.getState()
+Store.dispatch()
+store.subscribe()
+
+store.applymiddleware()  - thunk
+
+store.combileReducer()
+
+-------------------------
+view is dispatches the action, action is invokes the reducers and
+reducer(state,action) is creating new store based on action.type.
+once store is updated, it reflect back to view(react view)
+
+A R S
+action Reducers  Store
+
+
+
+
 		
 
 
