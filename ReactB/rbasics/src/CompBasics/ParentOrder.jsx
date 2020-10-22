@@ -14,14 +14,16 @@ class ParentOrder extends Component {
     this.state = {
       employee_Salary: "3000USD",
     };
+    this.salary_hike = this.salary_hike.bind(this);
   }
 
-  // salary_hike() {
-  //   this.setState({ employee_Salary: "4000USD" });
-  // }
-  salary_hike = () => {
+  salary_hike() {
     this.setState({ employee_Salary: "4000USD" });
-  };
+  }
+  // salary_hike = () => {
+  //   this.setState({ employee_Salary: "4000USD" });
+  // };
+  // arrow function - as class method
 
   iwantsalary_Hike() {
     alert("I Want");
@@ -30,11 +32,12 @@ class ParentOrder extends Component {
   render() {
     return (
       <div>
-        <ChildOrder message_props={this.message} employee={this.employee} />
+        <ChildOrder
+          message_props={this.message}
+          employee={this.employee}
+          salary_hike={this.salary_hike}
+        />
         <hr />
-
-        {/* <button onClick={this.salary_hike.bind(this)}> Get Hike </button>  */}
-        {/* <button onClick={() => this.salary_hike()}> Get Hike </button> */}
 
         <button onClick={this.salary_hike}>Get Hike </button>
         <button onClick={this.iwantsalary_Hike}>I want Salary </button>
@@ -47,3 +50,9 @@ class ParentOrder extends Component {
 export default ParentOrder;
 // event click - always use function only
 // not functin call
+{
+  /* <button onClick={this.salary_hike.bind(this)}> Get Hike </button>  */
+}
+{
+  /* <button onClick={() => this.salary_hike()}> Get Hike </button> */
+}

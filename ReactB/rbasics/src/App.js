@@ -7,12 +7,13 @@ import "./App.css";
 //import { FormText } from "reactstrap";
 //import FormEx from "./FormEx";
 import NavBar from "./Components/NavBar";
-import ParentOrder from './CompBasics/ParentOrder'
+import ParentOrder from "./CompBasics/ParentOrder";
+import IfRender from "./Render/IfRender";
 
 function App() {
   return (
     <>
-      <ParentOrder />
+      <IfRender />
     </>
   );
 }

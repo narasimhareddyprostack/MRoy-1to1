@@ -8,6 +8,7 @@ export default function ChildOrder(props) {
         Employee Name : {props.employee.employee_Name} , Emp Email:
         {props.employee.employee_Email}
       </h2>
+      <button onClick={props.salary_hike}> Get Hike Child</button>
     </div>
   );
 }

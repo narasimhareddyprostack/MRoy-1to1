@@ -1,0 +1,55 @@
+
+function userData(){
+
+}
+
+<button onclick="userData()">Submit</button>
+
+Event Handling
+Why Event Binding?
+------------------
+In class Component, this keyword return undefined in event handling.
+To handling this keyword properly, we need to bind event.
+----------------------------------------------------------------
+To handle this keyword, issue... we are using arrow function - class property as method
+----------------------------------------------------------------
+
+Diffent ways to handling event handling?
+
+1) arrow function  - render()
+  ()=> this.userData() 
+
+2)bind(this) in render() method
+----------------------------------
+3) arrow function - as class property
+
+  function userData(){
+
+  }
+  userData = ()=>{
+
+  }
+
+4) bind(this) - in constructor
+
+
+Condition Rending - hide/show  - JSX element or Component
+1) if else
+2) switch
+   switch(value){
+     case 1: {
+        
+        break:
+     }
+     case 2: {
+        
+     }
+   }
+3)Using Element Variable
+4)Immediate invoke function(IIF)
+5)Logical && or short hand operator
+6)Ternary Operator
+             ?        : 
+   Condition ? true   : false
+   
+   If(condtion){ true block} else { false}
