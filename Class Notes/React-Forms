@@ -1,0 +1,33 @@
+ES6
+-Fat Arrow
+-let,const
+-Classes
+-Import/Export
+-Destructuring Array, Objects
+-Template Literal
+-Array - supporting fun(forEach, Map, reduce etc)
+-Async Await:
+-Closure/Promices
+
+React Forms(Controlled Comp, Bootstrap)
+
+Controlled Components?
+
+React Routing/HTTP/API Consuming
+
+
+Redux
+React Hooks
+
+Higher Order Comp
+Context
+Project
+Mis Topics (Node JS)
+
+Step1: Add Form element
+Step : Add new State Property and assign them back form element value={}
+step: Assign Handler, implement Handler method to update the state propety value.
+
+
+https://formik.org/
+

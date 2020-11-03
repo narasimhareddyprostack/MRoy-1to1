@@ -8,12 +8,12 @@ import "./App.css";
 //import FormEx from "./FormEx";
 import NavBar from "./Components/NavBar";
 import ParentOrder from "./CompBasics/ParentOrder";
-import IfRender from "./Render/IfRender";
+import Registration from "./Forms/Registration";
 
 function App() {
   return (
     <>
-      <IfRender />
+      <Registration />
     </>
   );
 }
