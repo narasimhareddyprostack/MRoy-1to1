@@ -1,0 +1,35 @@
+Build Dashboard
+ - Bootstrap with React JS
+ - HTTP Client  AXIOS / alternatives
+ - Router
+Backend  - Express
+------------
+ - User Management(REST API - CRUD)
+ - API (Get, POST, PUT, Delete)
+
+What is AXIOS ? 
+Its promise based HTTP client to get API data.
+   - URL - return JSON.
+   .then(res)
+   .catch()
+
+
+Why We required AXIOS?
+fetch API in react? 
+cors? middleware modules
+body parser?
+
+Dashboard 
+  - React -router DOM
+  - AXIOS
+  - cors
+  - Body-parser
+
+3/4
+
+
+Backend - Develop API.
+API - HTTP
+
+
+BodyParser - parses JSON, URLs, string data submitted using HTTP Post
