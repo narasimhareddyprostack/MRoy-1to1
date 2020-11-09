@@ -6,12 +6,20 @@ class Index extends Component {
     users: [],
   };
 
-  componentDidMount() {
+  //   componentDidMount() {
+  //     axios.get(`http://localhost:9000/`).then((res) => {
+  //       const users = res.data;
+  //       this.setState({ users });
+  //     });
+  //   }
+  getData = () => {
+    console.log("inside getData - button click");
     axios.get(`http://localhost:9000/`).then((res) => {
       const users = res.data;
+      console.log(users);
       this.setState({ users });
     });
-  }
+  };
   render() {
     return (
       <div>
@@ -23,6 +31,10 @@ class Index extends Component {
             </li>
           ))}
         </ul>
+        <hr />
+        <button type="submit" onClick={this.getData}>
+          Submit
+        </button>
       </div>
     );
   }
