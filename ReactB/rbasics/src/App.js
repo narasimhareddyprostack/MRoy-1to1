@@ -9,12 +9,12 @@ import "./App.css";
 import NavBar from "./Components/NavBar";
 import ParentOrder from "./CompBasics/ParentOrder";
 import Registration from "./Forms/Registration";
-import Index from "./HTTPEx/Index";
+import AddUser from "./HTTPEx/AddUser";
 
 function App() {
   return (
     <>
-      <Index />
+      <AddUser />
     </>
   );
 }

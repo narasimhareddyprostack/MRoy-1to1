@@ -24,8 +24,8 @@ class Index extends Component {
     return (
       <div>
         <ul>
-          {this.state.users.map((user) => (
-            <li>
+          {this.state.users.map((user, index) => (
+            <li key={index}>
               {user.name} <br />
               {user.email}
             </li>

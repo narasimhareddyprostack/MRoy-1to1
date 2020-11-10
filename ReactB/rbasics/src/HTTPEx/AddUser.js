@@ -4,7 +4,6 @@ import axios from "axios";
 class AddUser extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       name: "",
       email: "",
@@ -18,41 +17,47 @@ class AddUser extends Component {
   };
   emailHandler = (event) => {
     this.setState({
-      name: event.target.value,
+      email: event.target.value,
     });
   };
   phoneHandler = (event) => {
     this.setState({
-      name: event.target.value,
+      phone: event.target.value,
     });
   };
-  componentDidMount(){
-      axios.put('localhost:9000/addUser ', user)
-           .then((res)=>{
-
-           })
-           .catch()
-  }
+  formHandler = (e) => {
+    const user = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phone,
+    };
+    console.log(user);
+    axios
+      .post(`http://localhost:9000/addUser`, user)
+      .then((res) => {})
+      .catch();
+    e.preventDefault();
+  };
   render() {
     return (
       <div>
         <h2> Form</h2>
-        <form>
-          <lable>User Name</lable>
+        <form onSubmit={this.formHandler}>
+          <label>User Name</label>
           <input
             type="text"
             value={this.state.name}
             onChange={this.nameHandler}
           />{" "}
           <br />
-          <lable>User Name</lable>
+          <label>Email</label>
           <input
             type="text"
             value={this.state.email}
             onChange={this.emailHandler}
           />
           <br />
-          <lable>User Name</lable>
+          <label>Phone</label>
           <input
             type="text"
             value={this.state.phone}
