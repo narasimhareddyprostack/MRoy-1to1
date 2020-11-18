@@ -9,12 +9,14 @@ import "./App.css";
 import NavBar from "./Components/NavBar";
 import ParentOrder from "./CompBasics/ParentOrder";
 import Registration from "./Forms/Registration";
-import UserLogin from "./Hooks/UserLogin";
+import Small from "./Hooks/small";
 
 function App() {
   return (
     <>
-      <UserLogin />
+      {/* <UserLogin />
+       */}
+      <Small />
     </>
   );
 }
