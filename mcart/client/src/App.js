@@ -6,7 +6,11 @@ import Home from "./modules/layout/components/home/Home";
 import MensCollection from "./modules/products/components/mens-collection/MensCollection";
 import WomensCollection from "./modules/products/components/women-collection/WomenCollection";
 import KidsCollection from "./modules/products/components/kids-collection/KidsCollection";
-
+import Login from "./modules/users/components/login/Login";
+import Profile from "./modules/users/components/profile/Profile";
+import Register from "./modules/users/components/register/Register";
+import UploadProducts from "./modules/products/components/upload-products/UploadProducts";
+import Cart from "./modules/orders/components/cart/Cart";
 function App() {
   return (
     <div className="App">
@@ -21,6 +25,16 @@ function App() {
             component={WomensCollection}
           ></Route>
           <Route exact path="/products/kids" component={KidsCollection}></Route>
+          <Route
+            exact
+            path="/products/upload"
+            component={UploadProducts}
+          ></Route>
+
+          <Route exact path="/users/login" component={Login}></Route>
+          <Route exact path="/users/profile" component={Profile}></Route>
+          <Route exact path="/users/register" component={Register}></Route>
+          <Route exact path="/orders/cart" component={Cart}></Route>
         </Switch>
       </Router>
     </div>
