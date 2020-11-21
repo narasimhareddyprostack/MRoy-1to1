@@ -32,6 +32,7 @@ let Register = () => {
                         type="text"
                         className="form-control"
                         placeholder="Name"
+                        required
                       />
                     </div>
                     <div className="form-group">
