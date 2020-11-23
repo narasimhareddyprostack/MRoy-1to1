@@ -28,7 +28,7 @@ app.listen(port, (err) => {
 });
 //mongoose.connect(url).then().catch();
 mongoose
-  .connect(process.env.MONGODB_LOCAL_URL, {
+  .connect(process.env.MONGODB_CLOUD_URL, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,

@@ -9,7 +9,9 @@ const { check, validationResult } = require("express-validator");
 //www.ecart.com/user/login  -  email, password
 //www.ecart.com/user/  -
 //www.ecart.com/user/profile  - address
-
+router.get("/", (req, res) => {
+  res.send("Inside - first Get request");
+});
 router.post(
   "/register",
   [
@@ -20,6 +22,7 @@ router.post(
       .withMessage("Password must be at least 6 characters"),
   ],
   (request, response) => {
+    console.log("inside post request");
     let errors = validationResult(request);
     if (!errors.isEmpty()) {
       console.log("Lot of Erros");
@@ -52,6 +55,9 @@ router.post(
 // router.post("/login");
 // router.post("/profile");
 // router.get("/");
-
+router.get("/", (req, res) => {
+  console.log("inside user route");
+  res.send("user - root : Get Request");
+});
 module.exports = router;
 //export default router;
