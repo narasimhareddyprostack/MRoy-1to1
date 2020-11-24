@@ -2,6 +2,9 @@
 //what is API?
 const express = require("express");
 const router = express.Router();
+
+const bcrypt = require("bcryptjs");
+
 const User = require("../model/User");
 const { check, validationResult } = require("express-validator");
 
@@ -9,9 +12,24 @@ const { check, validationResult } = require("express-validator");
 //www.ecart.com/user/login  -  email, password
 //www.ecart.com/user/  -
 //www.ecart.com/user/profile  - address
+
 router.get("/", (req, res) => {
   res.send("Inside - first Get request");
 });
+
+/*
+http://localhost:8000/user/
+*/
+router.get("/", (req, res) => {
+  console.log("inside user route");
+  res.send("user - root : Get Request");
+});
+
+/*
+ API : localhost:8000/user/register  - api
+
+ fields: name, email, password
+*/
 router.post(
   "/register",
   [
@@ -21,12 +39,12 @@ router.post(
       .isLength({ min: 6 })
       .withMessage("Password must be at least 6 characters"),
   ],
-  (request, response) => {
+  async (request, response) => {
     console.log("inside post request");
     let errors = validationResult(request);
     if (!errors.isEmpty()) {
       console.log("Lot of Erros");
-      return response.status(401).json({ errors: errors.array });
+      return response.status(401).json({ errors: errors.array() });
     }
     try {
       //save form data , into database
@@ -43,8 +61,11 @@ router.post(
         state: " ",
         mobile: " ",
       };
+      let salt = await bcrypt.genSalt(10);
+      password = await bcrypt.hash(password, salt);
+      console.log(password);
       let user = new User({ name, email, password, address });
-      user = user.save();
+      user = await user.save();
       response.status(200).json({
         result: "success",
         user: user,
@@ -55,9 +76,6 @@ router.post(
 // router.post("/login");
 // router.post("/profile");
 // router.get("/");
-router.get("/", (req, res) => {
-  console.log("inside user route");
-  res.send("user - root : Get Request");
-});
+
 module.exports = router;
 //export default router;
