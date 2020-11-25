@@ -47,10 +47,19 @@ router.post(
       return response.status(401).json({ errors: errors.array() });
     }
     try {
+      //user existed or not- need to check;
+      let { name, email, password } = request.body;
+
+      let user = await User.findOne({ email: email });
+      console.log(user);
+      if (user) {
+        return response
+          .status(401)
+          .json({ errors: [{ msg: "User Already Exits- Please Login" }] });
+      }
       //save form data , into database
       //read the from data
 
-      let { name, email, password } = request.body;
       let address = {
         flat: " ",
         street: " ",
@@ -64,7 +73,7 @@ router.post(
       let salt = await bcrypt.genSalt(10);
       password = await bcrypt.hash(password, salt);
       console.log(password);
-      let user = new User({ name, email, password, address });
+      user = new User({ name, email, password, address });
       user = await user.save();
       response.status(200).json({
         result: "success",

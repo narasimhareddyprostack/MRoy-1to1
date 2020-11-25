@@ -38,7 +38,7 @@ app.listen(port, (error) => {
   console.log(`Server is Running on ...${port}`);
 });
 mongoose
-  .connect(process.env.MONGODB_CLOUD_URL, {
+  .connect(process.env.MONGODB_LOCAL_URL, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false,
