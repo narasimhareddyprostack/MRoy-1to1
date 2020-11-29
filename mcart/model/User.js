@@ -5,6 +5,7 @@ let UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+
   isAdmin: { type: String, default: false },
   address: {
     flat: { type: String, required: true },

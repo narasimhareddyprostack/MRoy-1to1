@@ -9,14 +9,14 @@ import "./App.css";
 import NavBar from "./Components/NavBar";
 import ParentOrder from "./CompBasics/ParentOrder";
 import Registration from "./Forms/Registration";
-import Small from "./Hooks/small";
+import WishMessage from "./wish/WishMessage";
 
 function App() {
   return (
     <>
       {/* <UserLogin />
        */}
-      <Small />
+      <WishMessage />
     </>
   );
 }
