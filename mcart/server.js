@@ -24,7 +24,7 @@ const port = 8000 || process.env.PORT;
 //Router Configuration
 app.use("/user", require("./router/userRouter"));
 app.use("/product", require("./router/productRouter"));
-app.use("/order", require("./router/orderRouter"));
+//app.use("/order", require("./router/orderRouter"));
 // app.use("/payment", require("./router/paymentRouter"));
 
 app.get("/", (req, res) => {

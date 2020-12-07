@@ -1,5 +1,6 @@
+/*
 //order routes
-import Order from "./../../ReactB/rbasics/src/Order";
+//import Order from "./../../ReactB/rbasics/src/Order";
 //Two API - Order, List of Order : Employee
 const express = require("express");
 const router = express.Router();
@@ -32,3 +33,4 @@ router.post(
   }
 );
 router.post("/list");
+*/

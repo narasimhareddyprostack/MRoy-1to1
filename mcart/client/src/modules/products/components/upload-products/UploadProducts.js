@@ -1,12 +1,54 @@
-import React from "react";
+/*
+API : http://localhost:8000/product/upload
+*/
+
+import React, { useState } from "react";
+
+import { useDispatch } from "react-redux";
 
 let UploadProducts = () => {
+  //let dispatch = useDispatch();
+  let [product, setProduct] = useState({
+    name: "",
+    brand: "",
+    image: "",
+    price: "",
+    qty: "",
+    category: "",
+    description: "",
+    usage: "",
+  });
+  let inputHandler = (event) => {
+    setProduct({
+      ...product,
+      [event.target.name]: event.target.value,
+    });
+  };
+  let imageHandler = (event) => {
+    let imageFile = event.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(imageFile);
+    reader.addEventListener("load", () => {
+      if (reader.result) {
+        setProduct({
+          ...product,
+          image: reader.result,
+        });
+      }
+    });
+  };
+  let submitHandler = (event) => {
+    event.preventDefault();
+    //dispatch(uploadProduct());
+    console.log(product);
+  };
   return (
     <React.Fragment>
       <section className="container">
         <div className="row animated zoomInLeft">
           <div className="col">
             <p className="h3"> Upload Products</p>
+            <pre>{JSON.stringify(product)}</pre>
           </div>
         </div>
       </section>
@@ -17,10 +59,13 @@ let UploadProducts = () => {
               <p className="h3 text-white"> Upload Here</p>
             </div>
             <div className="card-body">
-              <form>
+              <form onSubmit={submitHandler}>
                 <div className="form-group">
                   <input
                     type="text"
+                    name="name"
+                    value={product.name}
+                    onChange={inputHandler}
                     placeholder="Product Name"
                     className="form-control"
                   />
@@ -28,6 +73,8 @@ let UploadProducts = () => {
                 <div className="form-group">
                   <input
                     type="file"
+                    name="image"
+                    onChange={imageHandler}
                     placeholder="Product Image"
                     className="form-control"
                   />
@@ -35,6 +82,8 @@ let UploadProducts = () => {
                 <div className="form-group">
                   <input
                     type="text"
+                    name="brand"
+                    onChange={inputHandler}
                     placeholder="Brand"
                     className="form-control"
                   />
@@ -42,12 +91,18 @@ let UploadProducts = () => {
                 <div className="form-group">
                   <input
                     type="number"
+                    name="qty"
+                    onChange={inputHandler}
                     placeholder="QTY"
                     className="form-control"
                   />
                 </div>
                 <div className="form-group">
-                  <select className="form-control">
+                  <select
+                    className="form-control"
+                    onChange={inputHandler}
+                    name="category"
+                  >
                     <option value="Mens">Mens Collections</option>
                     <option value="Womens">Women Collection</option>
                     <option value="Kids">Kids Collections</option>
@@ -56,7 +111,9 @@ let UploadProducts = () => {
                 <div className="form-group">
                   <input
                     type="number"
+                    onChange={inputHandler}
                     placeholder="Price"
+                    name="price"
                     className="form-control"
                   />
                 </div>
@@ -65,6 +122,8 @@ let UploadProducts = () => {
                     row="5"
                     placeholder="Product Description"
                     className="form-control"
+                    onChange={inputHandler}
+                    name="description"
                   ></textarea>
                 </div>
                 <div className="form-group">
@@ -72,6 +131,8 @@ let UploadProducts = () => {
                     row="5"
                     placeholder="Product Usage"
                     className="form-control"
+                    name="usage"
+                    onChange={inputHandler}
                   ></textarea>
                 </div>
                 <div className="form-group">
