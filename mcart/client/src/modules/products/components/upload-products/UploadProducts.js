@@ -3,11 +3,11 @@ API : http://localhost:8000/product/upload
 */
 
 import React, { useState } from "react";
-
+import { uploadProduct } from "./../../../../redux/products/products.actions";
 import { useDispatch } from "react-redux";
 
 let UploadProducts = () => {
-  //let dispatch = useDispatch();
+  let dispatch = useDispatch();
   let [product, setProduct] = useState({
     name: "",
     brand: "",
@@ -39,8 +39,9 @@ let UploadProducts = () => {
   };
   let submitHandler = (event) => {
     event.preventDefault();
-    //dispatch(uploadProduct());
-    console.log(product);
+    //view - dispatching action.
+    dispatch(uploadProduct(product));
+    //console.log(product);
   };
   return (
     <React.Fragment>
@@ -102,7 +103,10 @@ let UploadProducts = () => {
                     className="form-control"
                     onChange={inputHandler}
                     name="category"
+                    value={product.category}
+                    required
                   >
+                    <option value="">Select Category</option>
                     <option value="Mens">Mens Collections</option>
                     <option value="Womens">Women Collection</option>
                     <option value="Kids">Kids Collections</option>
