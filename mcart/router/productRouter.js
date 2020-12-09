@@ -50,11 +50,8 @@ router.post(
 
 router.get("/men", async (request, response) => {
   try {
-    let product = await Product.find({ category: "MENS" });
-    response.status(200).json({
-      result: "Success",
-      product: product,
-    });
+    let products = await Product.find({ category: "Mens" });
+    response.status(200).json(products);
   } catch (error) {
     response.status(500).json({ errors: [{ msg: "Server Errors}" }] });
   }

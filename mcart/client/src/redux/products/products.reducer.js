@@ -3,6 +3,9 @@ import {
   UPLOAD_PRODUCT_REQUEST,
   UPLOAD_PRODUCT_SUCCESS,
   UPLOAD_PRODUCT_FAILURE,
+  MENS_PRODUCT_REQUEST,
+  MENS_PRODUCT_SUCCESS,
+  MENS_PRODUCT_FAILURE,
 } from "./products.actions";
 let initialState = {
   products: [],
@@ -28,9 +31,27 @@ let productReducer = (state = initialState, action) => {
     case UPLOAD_PRODUCT_FAILURE:
       return {
         ...state,
-        loading: false,
-        errorMessge: payload,
+        loading: true,
+        errorMesssage: payload,
       };
+    case MENS_PRODUCT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case MENS_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        products: payload,
+      };
+    case MENS_PRODUCT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        errorMesssage: payload,
+      };
+
     default:
       return state;
   }

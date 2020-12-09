@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-
-let rootReducer = combineReducers({});
+import productReducer from "./products/products.reducer";
+let rootReducer = combineReducers({ mproducts: productReducer });
 export { rootReducer };
 //named export
