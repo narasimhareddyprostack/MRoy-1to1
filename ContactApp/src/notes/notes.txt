@@ -1,0 +1,15 @@
+React JS with http
+------------------
+React JS -> Library , not a framework
+
+fetch API ->
+Axios Library -> HTTP -> Get , post , trace , delete , put , patch
+
+npm install axios -> npm i axios -> entry in package.json
+---------------------------------------
+React Life Cycle Methods
+---------------------------------------
+constructor() ->
+render() ->
+componentDidMount() -> fetch the data from server
+componentWillUnMount()

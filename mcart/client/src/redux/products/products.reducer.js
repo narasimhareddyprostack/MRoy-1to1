@@ -13,7 +13,7 @@ let initialState = {
   errorMesssage: "",
   selectedProducts: {},
 };
-
+//pure function taking args are - state, action
 let productReducer = (state = initialState, action) => {
   let { type, payload } = action;
   switch (type) {

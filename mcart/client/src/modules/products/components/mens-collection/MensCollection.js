@@ -5,10 +5,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { getMensCollection } from "./../../../../redux/products/products.actions";
 
 let MensCollection = () => {
+  //read the redux store state data
   let mensCollection = useSelector((state) => {
     return state["mproducts"];
   });
   let { products } = mensCollection;
+  //dispatch the actions
   let dispatch = useDispatch();
 
   useEffect(() => {

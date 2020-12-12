@@ -37,6 +37,7 @@ let getMensCollection = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: MENS_PRODUCT_REQUEST });
+      //invoking/consuming the api - backend API
       let response = await axios.get(`/product/men`);
       dispatch({ type: MENS_PRODUCT_SUCCESS, payload: response.data });
     } catch (error) {
