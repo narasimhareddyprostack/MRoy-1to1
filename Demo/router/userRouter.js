@@ -33,6 +33,9 @@ router.post("/register", async (request, response) => {
     return response.status(500).json({ errors: "Server Error" });
   }
 });
+//localhost:5000/user/all
+router.get('/alluser', (request,response)=>{
 
+})
 module.exports = router;
 //export default router;
