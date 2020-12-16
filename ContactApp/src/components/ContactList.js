@@ -26,9 +26,12 @@ class ContactList extends React.Component {
           <tbody>
             {Object.keys(this.props).length !== 0 ? (
               <React.Fragment>
-                {this.props.contacts.map((contact) => {
+                {this.props.contacts.map((contact, index) => {
                   return (
-                    <tr onClick={this.clickContact.bind(this, contact)}>
+                    <tr
+                      onClick={this.clickContact.bind(this, contact)}
+                      key={index}
+                    >
                       <td>
                         {contact.login.uuid.substr(
                           contact.login.uuid.length - 4
