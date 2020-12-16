@@ -9,6 +9,10 @@ const MENS_PRODUCT_REQUEST = "MENS_PRODUCT_REQUEST";
 const MENS_PRODUCT_SUCCESS = "MENS_PRODUCT_SUCCESS";
 const MENS_PRODUCT_FAILURE = "MENS_PRODUCT_SUCCESS";
 
+const WOMENS_PRODUCT_REQUEST = "WOMENS_PRODUCT_REQUEST";
+const WOMENS_PRODUCT_SUCCESS = "WOMENS_PRODUCT_SUCCESS";
+const WOMENS_PRODUCT_FAILURE = "WOMENS_PRODUCT_FAILURE";
+
 //upload product Actin
 let uploadProduct = (product) => {
   return async (dispatch) => {
@@ -45,6 +49,17 @@ let getMensCollection = () => {
     }
   };
 };
+let getWomensCollection = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: WOMENS_PRODUCT_REQUEST });
+      let response = await axios.get(`/product/women`);
+      dispatch({ type: WOMENS_PRODUCT_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: WOMENS_PRODUCT_FAILURE, payload: error });
+    }
+  };
+};
 export {
   uploadProduct,
   UPLOAD_PRODUCT_REQUEST,
@@ -53,5 +68,9 @@ export {
   MENS_PRODUCT_REQUEST,
   MENS_PRODUCT_SUCCESS,
   MENS_PRODUCT_FAILURE,
+  WOMENS_PRODUCT_REQUEST,
+  WOMENS_PRODUCT_SUCCESS,
+  WOMENS_PRODUCT_FAILURE,
   getMensCollection,
+  getWomensCollection,
 };
