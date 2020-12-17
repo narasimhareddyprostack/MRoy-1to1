@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import imageOne from "../../../../assets/img/products/mens/men_1.jpg";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getMensCollection } from "./../../../../redux/products/products.actions";
@@ -30,7 +29,7 @@ let MensCollection = () => {
       </section>
       <section className="mt-3">
         <div className="container">
-          <pre>{JSON.stringify(products)}</pre>
+          {/* <pre>{JSON.stringify(products)}</pre> */}
           <div className="row animated zoomInLeft">
             {products.map((product) => {
               return (

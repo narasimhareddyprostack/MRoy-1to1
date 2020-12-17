@@ -67,11 +67,8 @@ router.get("/women", async (request, response) => {
 });
 router.get("/kids", async (request, response) => {
   try {
-    let product = await Product.find({ category: "KIDS" });
-    response.status(200).json({
-      result: "Success",
-      product: product,
-    });
+    let products = await Product.find({ category: "Kids" });
+    response.status(200).json(products);
   } catch (error) {
     response.status(500).json({ errors: [{ msg: "Server Errors}" }] });
   }

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import imageOne from "../../../../assets/img/products/mens/men_1.jpg";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getWomensCollection } from "./../../../../redux/products/products.actions";
