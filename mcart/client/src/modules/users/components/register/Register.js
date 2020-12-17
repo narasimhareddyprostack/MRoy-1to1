@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import {getRegistration} from './../../../../redux/users/users.actions';
 
 let Register = () => {
+  let dispatch = useDispatch();
+  let [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  let inputHandler = (event) => {
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value,
+    });
+  };
+  let RegistrationHandler = (event) => {
+    event.preventDefault();
+    //console.log(user);
+    dispatch(getRegistration(user));
+
+  };
   return (
     <React.Fragment>
-      <section class="p-3 bg-warning">
+      <section className="p-3 bg-warning">
         <div className="container">
           <div className="row animated flipInY">
             <div className="col">
@@ -26,33 +46,42 @@ let Register = () => {
                   <h4 className="text-white">Register Here</h4>
                 </div>
                 <div className="card-body">
-                  <form>
+                  <form onSubmit={RegistrationHandler}>
                     <div className="form-group">
                       <input
                         type="text"
                         className="form-control"
                         placeholder="Name"
                         required
+                        name="name"
+                        value={user.name}
+                        onChange={inputHandler}
                       />
                     </div>
                     <div className="form-group">
                       <input
                         type="email"
+                        value={user.email}
                         className="form-control"
                         placeholder="Email"
+                        name="email"
+                        onChange={inputHandler}
                       />
                     </div>
                     <div className="form-group">
                       <input
                         type="password"
+                        value={user.password}
                         className="form-control"
                         placeholder="Password"
+                        name="password"
+                        onChange={inputHandler}
                       />
                     </div>
                     <div className="form-group">
                       <input
                         type="submit"
-                        value="Login"
+                        value="Register"
                         className="form-control btn btn-primary"
                       />
                     </div>
