@@ -80,10 +80,7 @@ router.post(
       console.log(password);
       user = new User({ name, email, password, address });
       user = await user.save();
-      response.status(200).json({
-        result: "success",
-        user: user,
-      });
+      response.status(200).json(user);
     } catch (error) {
       return response.status(500).json({ errors: "Server Error" });
     }

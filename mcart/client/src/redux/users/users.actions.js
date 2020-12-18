@@ -3,11 +3,15 @@ const LOGIN_REQUEST = "LOGIN_REQUEST";
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGIN_FAILURE = "LOGIN_FAILURE";
 
+const REG_USER_REQUEST = "REG_USER_REQUEST";
+const REG_USER_SUCCESS = "REG_USER_SUCCESS";
+const REG_USER_FAILURE = "REG_USER_FAILURE";
+
 let getRegistration = (user) => {
   //return type and payload
   return async (dispatch) => {
     try {
-      dispatch({ type: LOGIN_REQUEST });
+      dispatch({ type: REG_USER_REQUEST });
       //We need to consume the backend api
       let config = {
         headers: {
@@ -19,12 +23,20 @@ let getRegistration = (user) => {
         JSON.stringify(user),
         config
       );
-      dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+      dispatch({ type: REG_USER_SUCCESS, payload: response.data });
       //
     } catch (error) {
-      dispatch({ type: LOGIN_FAILURE, payload: error });
+      dispatch({ type: REG_USER_FAILURE, payload: error });
     }
   };
 };
 
-export { getRegistration, LOGIN_REQUEST, LOGIN_FAILURE, LOGIN_SUCCESS };
+export {
+  getRegistration,
+  LOGIN_REQUEST,
+  LOGIN_FAILURE,
+  LOGIN_SUCCESS,
+  REG_USER_REQUEST,
+  REG_USER_SUCCESS,
+  REG_USER_FAILURE,
+};
