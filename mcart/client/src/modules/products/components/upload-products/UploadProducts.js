@@ -5,9 +5,11 @@ API : http://localhost:8000/product/upload
 import React, { useState } from "react";
 import { uploadProduct } from "./../../../../redux/products/products.actions";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 let UploadProducts = () => {
   let dispatch = useDispatch();
+  let history = useHistory();
   let [product, setProduct] = useState({
     name: "",
     brand: "",
@@ -40,7 +42,7 @@ let UploadProducts = () => {
   let submitHandler = (event) => {
     event.preventDefault();
     //view - dispatching action.
-    dispatch(uploadProduct(product));
+    dispatch(uploadProduct(product,history));
     //console.log(product);
   };
   return (

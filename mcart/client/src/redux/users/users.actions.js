@@ -7,7 +7,10 @@ const REG_USER_REQUEST = "REG_USER_REQUEST";
 const REG_USER_SUCCESS = "REG_USER_SUCCESS";
 const REG_USER_FAILURE = "REG_USER_FAILURE";
 
-let getRegistration = (user) => {
+let getLogin = (user, history) => {
+  //actions
+};
+let getRegistration = (user, history) => {
   //return type and payload
   return async (dispatch) => {
     try {
@@ -24,7 +27,7 @@ let getRegistration = (user) => {
         config
       );
       dispatch({ type: REG_USER_SUCCESS, payload: response.data });
-      //
+      history.push("/users/login");
     } catch (error) {
       dispatch({ type: REG_USER_FAILURE, payload: error });
     }
@@ -33,6 +36,7 @@ let getRegistration = (user) => {
 
 export {
   getRegistration,
+  getLogin,
   LOGIN_REQUEST,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,

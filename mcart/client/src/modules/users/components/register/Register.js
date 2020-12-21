@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {getRegistration} from './../../../../redux/users/users.actions';
+import { useHistory } from "react-router-dom"
 
 let Register = () => {
   let dispatch = useDispatch();
+  let history = useHistory();
   let [user, setUser] = useState({
     name: "",
     email: "",
@@ -18,7 +20,7 @@ let Register = () => {
   let RegistrationHandler = (event) => {
     event.preventDefault();
     //console.log(user);
-    dispatch(getRegistration(user));
+    dispatch(getRegistration(user,history));
 
   };
   return (

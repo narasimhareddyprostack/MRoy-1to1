@@ -18,7 +18,7 @@ const KIDS_PRODUCT_SUCCESS = "KIDS_PRODUCT_SUCCESS";
 const KIDS_PRODUCT_FAILURE = "KIDS_PRODUCT_FAILURE";
 
 //upload product Actin
-let uploadProduct = (product) => {
+let uploadProduct = (product, history) => {
   return async (dispatch) => {
     // need to consume API, return response as payload
     //action return type and payload(API Response)
@@ -35,6 +35,7 @@ let uploadProduct = (product) => {
         config
       );
       dispatch({ type: UPLOAD_PRODUCT_SUCCESS, payload: response.data });
+      history.push("/products/men");
     } catch (error) {
       dispatch({ type: UPLOAD_PRODUCT_FAILURE, payload: error });
     }
