@@ -33,6 +33,28 @@ let userReducer = (state = initialState, action) => {
         loading: false,
         errorMessage: payload,
       };
+    case LOGIN_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case LOGIN_SUCCESS:
+      localStorage.setItem("token", payload.token);
+      return {
+        ...state,
+        loading: false,
+        token: payload.token,
+        isAuthenticated: true,
+      };
+    case LOGIN_FAILURE:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        loading: false,
+        token: null,
+        isAuthenticated: false,
+        errorMessage: payload,
+      };
     default:
       return state;
   }

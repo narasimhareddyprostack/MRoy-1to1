@@ -8,7 +8,25 @@ const REG_USER_SUCCESS = "REG_USER_SUCCESS";
 const REG_USER_FAILURE = "REG_USER_FAILURE";
 
 let getLogin = (user, history) => {
-  //actions
+  return async (dispatch) => {
+    try {
+      dispatch({ type: LOGIN_REQUEST });
+      let config = {
+        headers: {
+          "content-type": "application/json",
+        },
+      };
+      let response = await axios.post(
+        `/user/login`,
+        JSON.stringify(user),
+        config
+      );
+      dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+      history.push("/");
+    } catch (error) {
+      dispatch({ type: LOGIN_FAILURE, payload: error });
+    }
+  };
 };
 let getRegistration = (user, history) => {
   //return type and payload
@@ -26,6 +44,7 @@ let getRegistration = (user, history) => {
         JSON.stringify(user),
         config
       );
+
       dispatch({ type: REG_USER_SUCCESS, payload: response.data });
       history.push("/users/login");
     } catch (error) {
