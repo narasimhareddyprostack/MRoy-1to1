@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {getLogin} from './../../../../redux/users/users.actions';
+import { getLogin } from "./../../../../redux/users/users.actions";
 import { useHistory } from "react-router-dom";
 
 let Login = () => {
@@ -17,7 +17,7 @@ let Login = () => {
       [event.target.name]: event.target.value,
     });
   };
-  let loginHandler = (event) => {
+  let submitHandler = (event) => {
     event.preventDefault();
     //console.log(user);
     dispatch(getLogin(user, history));
@@ -47,7 +47,7 @@ let Login = () => {
                   <h4 className="text-white">Login Here</h4>
                 </div>
                 <div className="card-body">
-                  <form onSubmit={loginHandler}>
+                  <form onSubmit={submitHandler}>
                     <div className="form-group">
                       <input
                         type="email"

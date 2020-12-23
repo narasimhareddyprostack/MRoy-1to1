@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {getRegistration} from './../../../../redux/users/users.actions';
-import { useHistory } from "react-router-dom"
+import { getRegistration } from "./../../../../redux/users/users.actions";
+import { useHistory } from "react-router-dom";
 
 let Register = () => {
   let dispatch = useDispatch();
@@ -11,17 +11,52 @@ let Register = () => {
     email: "",
     password: "",
   });
-  let inputHandler = (event) => {
-    setUser({
-      ...user,
-      [event.target.name]: event.target.value,
-    });
+  let [userError, setUserError] = useState({
+    nameError: "",
+    emailError: "",
+    passwordError: "",
+  });
+  // let inputHandler = (event) => {
+  //   setUser({
+  //     ...user,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+  let nameHandler = (event) => {
+    setUser({ ...user, name: event.target.value });
+    let regExp = /^[a-zA-Z0-9]{5,10}$/;
+    if (regExp.test(event.target.value)) {
+      setUserError({ ...userError, nameError: "" });
+    } else {
+      setUserError({ ...userError, nameError: "Enter a proper Name" });
+    }
   };
+  let emailHandler = (event) => {
+    setUser({ ...user, email: event.target.value });
+    let regExp = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
+    if (regExp.test(event.target.value)) {
+      setUserError({ ...userError, emailError: "" });
+    } else {
+      setUserError({ ...userError, emailError: "Enter a proper Email" });
+    }
+  };
+  let passwordHandler = (event) => {
+    setUser({ ...user, password: event.target.value });
+    let regExp = /^[a-zA-Z]\w{3,14}$/;
+    if (regExp.test(event.target.value)) {
+      setUserError({ ...userError, passwordError: "" });
+    } else {
+      setUserError({
+        ...userError,
+        passwordError: "Please Enter Proper Password",
+      });
+    }
+  };
+
   let RegistrationHandler = (event) => {
     event.preventDefault();
     //console.log(user);
-    dispatch(getRegistration(user,history));
-
+    dispatch(getRegistration(user, history));
   };
   return (
     <React.Fragment>
@@ -41,6 +76,8 @@ let Register = () => {
       </section>
       <section className="mt-3">
         <div className="container">
+          <pre>{JSON.stringify(user)}</pre>
+          <pre>{JSON.stringify(userError)}</pre>
           <div className="row">
             <div className="col-md-4 m-auto">
               <div className="card animated jello ">
@@ -57,8 +94,16 @@ let Register = () => {
                         required
                         name="name"
                         value={user.name}
-                        onChange={inputHandler}
+                        onChange={nameHandler}
                       />
+                      {userError.nameError ? (
+                        <small className="text-danger">
+                          {userError.nameError}
+                        </small>
+                      ) : (
+                        ""
+                      )}
+                      {1 ? "" : ""}
                     </div>
                     <div className="form-group">
                       <input
@@ -67,8 +112,15 @@ let Register = () => {
                         className="form-control"
                         placeholder="Email"
                         name="email"
-                        onChange={inputHandler}
+                        onChange={emailHandler}
                       />
+                      {userError.emailError ? (
+                        <small className="text-danger">
+                          {userError.emailError}
+                        </small>
+                      ) : (
+                        ""
+                      )}
                     </div>
                     <div className="form-group">
                       <input
@@ -77,8 +129,15 @@ let Register = () => {
                         className="form-control"
                         placeholder="Password"
                         name="password"
-                        onChange={inputHandler}
+                        onChange={passwordHandler}
                       />
+                      {userError.passwordError ? (
+                        <small className="text-danger">
+                          {userError.passwordError}
+                        </small>
+                      ) : (
+                        ""
+                      )}
                     </div>
                     <div className="form-group">
                       <input
