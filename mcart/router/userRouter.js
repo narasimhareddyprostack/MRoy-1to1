@@ -16,7 +16,6 @@ dotEnv.config({ path: "./config/config.env" });
 //www.ecart.com/user/login  -  email, password
 //www.ecart.com/user/  -
 //www.ecart.com/user/profile  - address
-
 // router.get("/", (req, res) => {
 //   res.send("Inside - first Get request");
 // });
