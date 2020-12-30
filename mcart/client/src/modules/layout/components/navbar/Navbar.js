@@ -13,7 +13,7 @@ let Navbar = () => {
           </Link>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav">
-              {/* <li className="nav-item active">
+              <li className="nav-item active">
                 <Link to="/products/men" className="nav-link">
                   Mens Collections
                 </Link>
@@ -27,7 +27,7 @@ let Navbar = () => {
                 <Link to="/products/kids" className="nav-link">
                   Kids Collections
                 </Link>
-              </li> */}
+              </li>
               <li className="nav-item active">
                 <Link to="/products/upload" className="nav-link">
                   upload

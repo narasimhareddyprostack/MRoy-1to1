@@ -1,0 +1,30 @@
+let product = {
+	product_Name = "",
+	image = ""
+	qty = 1,
+	price = 1299
+}
+
+I want to display - react component
+
+>redux react-redux redux-devtools-extension
+
+Redux 
+ - Why?
+ State Management - Redux framework
+
+View - action - reducer - store - view
+
+action
+reducer 
+store 
+
+class product extends React.Component{
+	product = {
+	product_Name = "",
+	image = ""
+	qty = 1,
+	price = 1299
+}
+
+}

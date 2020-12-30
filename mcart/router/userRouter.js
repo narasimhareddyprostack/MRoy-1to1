@@ -95,7 +95,7 @@ router.post(
   [
     (check("email").isEmail().withMessage("Please Enter Proper Email"),
     check("password")
-      .isLength({ min: 6 })
+      .isLength({ min: 5 })
       .withMessage("Password must be at least 6 characters")),
   ],
   async (request, response) => {
