@@ -26,5 +26,21 @@ class product extends React.Component{
 	qty = 1,
 	price = 1299
 }
+-----------------------------
+.setState()
 
-}
+
+Redux Flow
+---------------------
+view - dispatches action.
+action - will invoke the reducer .
+reducer - create new/update new store.
+
+
+store.js - createStore(reducer)
+
+---------------
+
+{ 1  ?  'true'   : 'false'}
+
+{  qty < 1} ? 

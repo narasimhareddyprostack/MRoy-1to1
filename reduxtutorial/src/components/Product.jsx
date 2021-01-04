@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import { mapDispatchToProps, mapStateToProps } from "react-redux";
+
 import { incrAction, decrAction } from "../redux/product/product.action";
 let Product = () => {
   let dispatch = useDispatch();
+  //mapDispatchToProps
 
   let product = useSelector((state) => {
     return state.product;
   });
+  //mapStateToProps() // to read the store data
 
   let incrHandler = () => {
     dispatch(incrAction());
@@ -18,9 +23,10 @@ let Product = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container"> 
         <div className="row">
           <pre>{JSON.stringify(product)}</pre>
+          <pre>{"Hello"}</pre>
           <div className="col-md-10">
             <table class="table">
               <thead class="thead-dark">
