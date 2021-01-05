@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CompHun from "./CompHun";
+
 import UserContext from "./UserContext";
 class CompThree extends Component {
   render() {
@@ -8,13 +8,12 @@ class CompThree extends Component {
         <div className="row">
           <div className="col">
             <div className="card">
-              <div className="card-body bg-primary">
+              <div className="card-body bg-info">
                 <UserContext.Consumer>
                   {(user) => {
                     return <span>{user.name}</span>;
                   }}
                 </UserContext.Consumer>
-                <CompHun />
               </div>
             </div>
           </div>
