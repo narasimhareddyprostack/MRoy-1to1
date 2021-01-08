@@ -3,6 +3,9 @@ import {
   UPLOAD_PRODUCT_REQUEST,
   UPLOAD_PRODUCT_SUCCESS,
   UPLOAD_PRODUCT_FAILURE,
+  PRODUCT_REQUEST,
+  PRODUCT_SUCCESS,
+  PRODUCT_FAILURE,
   MENS_PRODUCT_REQUEST,
   MENS_PRODUCT_SUCCESS,
   MENS_PRODUCT_FAILURE,
@@ -23,6 +26,24 @@ let initialState = {
 let productReducer = (state = initialState, action) => {
   let { type, payload } = action;
   switch (type) {
+    case PRODUCT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case PRODUCT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        selectedProducts: payload,
+      };
+    case PRODUCT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        errorMesssage: payload,
+      };
+
     case KIDS_PRODUCT_REQUEST:
       return {
         ...state,
@@ -40,7 +61,7 @@ let productReducer = (state = initialState, action) => {
         loading: true,
         errorMesssage: payload,
       };
-    
+
     case UPLOAD_PRODUCT_REQUEST:
       return {
         ...state,

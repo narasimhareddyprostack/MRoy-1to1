@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getMensCollection } from "./../../../../redux/products/products.actions";
-
+import { Link } from "react-router-dom";
 let MensCollection = () => {
   //read the redux store state data
   let mensCollection = useSelector((state) => {
@@ -29,15 +29,22 @@ let MensCollection = () => {
       </section>
       <section className="mt-3">
         <div className="container">
-          {/* <pre>{JSON.stringify(products)}</pre> */}
+          <pre>{JSON.stringify(products)}</pre>
           <div className="row animated zoomInLeft">
             {products.map((product) => {
               return (
                 <div className="col-md-3">
                   <div className="card text-center">
                     <div className="card-header bg-white">
-                      <img src={product.image} alt="" className="image-fluid" />
+                      <Link to={`/product/${product._id}`}>
+                        <img
+                          src={product.image}
+                          alt=""
+                          className="image-fluid"
+                        />
+                      </Link>
                     </div>
+
                     <div className="card-body">
                       <ul className="list-group">
                         <li className="list-group-item">{product.name}</li>

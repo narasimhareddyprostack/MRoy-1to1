@@ -73,4 +73,19 @@ router.get("/kids", async (request, response) => {
     response.status(500).json({ errors: [{ msg: "Server Errors}" }] });
   }
 });
+/*
+ API Name: localhost:8000/product/id
+ GET
+ Type:Private
+*/
+router.get("/:id", async (req, res) => {
+  try {
+    let productId = req.param("id");
+    let product = await Product.findOne({ _id: productId });
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ errors: [{ msg: "Server Errors}" }] });
+  }
+});
+
 module.exports = router;

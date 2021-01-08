@@ -12,13 +12,6 @@ const User = require("../model/User");
 const { check, validationResult } = require("express-validator");
 const dotEnv = require("dotenv");
 dotEnv.config({ path: "./config/config.env" });
-//www.ecart.com/user/register  - name, email, password
-//www.ecart.com/user/login  -  email, password
-//www.ecart.com/user/  -
-//www.ecart.com/user/profile  - address
-// router.get("/", (req, res) => {
-//   res.send("Inside - first Get request");
-// });
 
 /*
 http://localhost:8000/user/
@@ -148,3 +141,10 @@ router.post(
 
 module.exports = router;
 //export default router;
+//www.ecart.com/user/register  - name, email, password
+//www.ecart.com/user/login  -  email, password
+//www.ecart.com/user/  -
+//www.ecart.com/user/profile  - address
+// router.get("/", (req, res) => {
+//   res.send("Inside - first Get request");
+// });

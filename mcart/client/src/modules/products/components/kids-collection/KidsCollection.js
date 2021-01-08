@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getKidsCollection } from "./../../../../redux/products/products.actions";
-
+import { Link } from "react-router-dom";
 let KidsCollection = () => {
   //read the redux store state data
   let mensCollection = useSelector((state) => {
@@ -36,7 +36,13 @@ let KidsCollection = () => {
                 <div className="col-md-3">
                   <div className="card text-center">
                     <div className="card-header bg-white">
-                      <img src={product.image} alt="" className="image-fluid" />
+                      <Link to={`/product/${product._id}`}>
+                        <img
+                          src={product.image}
+                          alt=""
+                          className="image-fluid"
+                        />
+                      </Link>
                     </div>
                     <div className="card-body">
                       <ul className="list-group">

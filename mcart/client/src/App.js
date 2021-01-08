@@ -11,7 +11,7 @@ import Profile from "./modules/users/components/profile/Profile";
 import Register from "./modules/users/components/register/Register";
 import UploadProducts from "./modules/products/components/upload-products/UploadProducts";
 import Cart from "./modules/orders/components/cart/Cart";
-
+import ProductDetails from "./modules/products/components/product-details/ProductDetails";
 import React from "react";
 function App() {
   return (
@@ -42,6 +42,7 @@ function App() {
               component={UploadProducts}
             ></Route>
 
+            <Route exact path="/product/:id" component={ProductDetails}></Route>
             <Route exact path="/users/login" component={Login}></Route>
             <Route exact path="/users/profile" component={Profile}></Route>
             <Route exact path="/users/register" component={Register}></Route>

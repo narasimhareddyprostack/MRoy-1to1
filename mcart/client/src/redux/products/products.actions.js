@@ -17,6 +17,23 @@ const KIDS_PRODUCT_REQUEST = "KIDS_PRODUCT_REQUEST";
 const KIDS_PRODUCT_SUCCESS = "KIDS_PRODUCT_SUCCESS";
 const KIDS_PRODUCT_FAILURE = "KIDS_PRODUCT_FAILURE";
 
+const PRODUCT_REQUEST = "PRODUCT_REQUEST";
+const PRODUCT_SUCCESS = "PRODUCT_SUCCESS";
+const PRODUCT_FAILURE = "PRODUCT_FAILURE";
+//getSingle Details Product Action
+let getSingleProduct = (id) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: PRODUCT_REQUEST });
+      let response = await axios.get(`/product/${id}`);
+      console.log(response);
+      dispatch({ type: PRODUCT_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: PRODUCT_FAILURE, payload: error });
+    }
+  };
+};
+
 //upload product Actin
 let uploadProduct = (product, history) => {
   return async (dispatch) => {
@@ -54,6 +71,7 @@ let getMensCollection = () => {
     }
   };
 };
+
 let getWomensCollection = () => {
   return async (dispatch) => {
     try {
@@ -81,6 +99,9 @@ export {
   UPLOAD_PRODUCT_REQUEST,
   UPLOAD_PRODUCT_SUCCESS,
   UPLOAD_PRODUCT_FAILURE,
+  PRODUCT_REQUEST,
+  PRODUCT_SUCCESS,
+  PRODUCT_FAILURE,
   MENS_PRODUCT_REQUEST,
   MENS_PRODUCT_SUCCESS,
   MENS_PRODUCT_FAILURE,
@@ -93,4 +114,5 @@ export {
   getMensCollection,
   getWomensCollection,
   getKidsCollection,
+  getSingleProduct,
 };
