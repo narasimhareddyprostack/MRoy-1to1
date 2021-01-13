@@ -1,11 +1,12 @@
 import React from "react";
 import imageOne from "../../../../assets/img/products/mens/men_1.jpg";
 
-import imageTwo from "../../../../assets/img/products/mens/men_2.jpg";
-import imageThree from "../../../../assets/img/products/mens/men_3.jpg";
-import imageFour from "../../../../assets/img/products/mens/men_4.jpg";
-
+import { useSelector } from "react-redux";
 let Cart = () => {
+  let cartData = useSelector((state) => {
+    return state.cart;
+  });
+  let { cartItems } = cartData;
   return (
     <React.Fragment>
       <section className="p-3 bg-warning text-center">
@@ -19,6 +20,7 @@ let Cart = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8">
+              <pre>{JSON.stringify(cartItems)}</pre>
               <div className="card">
                 <div className="card-header bg-dark text-brains">
                   <p className="h4 text-white"> Cart Items</p>
@@ -37,62 +39,19 @@ let Cart = () => {
                     <tbody>
                       <tr>
                         <td>
-                          <img src={imageOne} alt="" width="50" height="80" />
+                          <img
+                            src={cartItems.image}
+                            alt=""
+                            width="50"
+                            height="80"
+                          />
                         </td>
-                        <td>Mens Fit Shirt</td>
+                        <td>{cartItems.name}</td>
                         <td>
                           <i className="fa fa-minus-circle mx-2">2</i>
                           <i className="fa fa-plus-circle mx-2"></i>
                         </td>
-                        <td>&#8377; 500.00</td>
-                        <td>
-                          <button className="btn btn-danger btn-sm">
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <img src={imageThree} alt="" width="50" height="80" />
-                        </td>
-                        <td>Mens Fit Shirt</td>
-                        <td>
-                          <i className="fa fa-minus-circle mx-2">2</i>
-                          <i className="fa fa-plus-circle mx-2"></i>
-                        </td>
-                        <td>&#8377; 500.00</td>
-                        <td>
-                          <button className="btn btn-danger btn-sm">
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <img src={imageFour} alt="" width="50" height="80" />
-                        </td>
-                        <td>Mens Fit Shirt</td>
-                        <td>
-                          <i className="fa fa-minus-circle mx-2">2</i>
-                          <i className="fa fa-plus-circle mx-2"></i>
-                        </td>
-                        <td>&#8377; 500.00</td>
-                        <td>
-                          <button className="btn btn-danger btn-sm">
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <img src={imageTwo} alt="" width="50" height="80" />
-                        </td>
-                        <td>Mens Fit Shirt</td>
-                        <td>
-                          <i className="fa fa-minus-circle mx-2">2</i>
-                          <i className="fa fa-plus-circle mx-2"></i>
-                        </td>
-                        <td>&#8377; 500.00</td>
+                        <td>&#8377; {cartItems.price}</td>
                         <td>
                           <button className="btn btn-danger btn-sm">
                             Delete

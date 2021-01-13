@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
+import { useHistory } from "react-router-dom";
+import { addToCart } from "../../../../redux/orders/orders.actions";
 import { getSingleProduct } from "../../../../redux/products/products.actions";
 
 let ProductDetails = () => {
   const { id } = useParams();
   let dispatch = useDispatch();
+  let history = useHistory();
   //read redux store data
   let singleProduct = useSelector((state) => {
     return state["mproducts"];
@@ -16,6 +18,10 @@ let ProductDetails = () => {
     dispatch(getSingleProduct(id));
   }, [id]);
   let { selectedProducts } = singleProduct;
+
+  let addToCartHandler = () => {
+    dispatch(addToCart(selectedProducts, history));
+  };
   return (
     <React.Fragment>
       {/* <pre>{JSON.stringify(id)}</pre> */}
@@ -39,7 +45,12 @@ let ProductDetails = () => {
             <h5> {selectedProducts.brand}</h5>
             <h5>&#8377; {selectedProducts.price}</h5>
 
-            <button className="btn btn-primary btn-sm">Add to Cart</button>
+            <button
+              className="btn btn-primary btn-sm"
+              onClick={addToCartHandler}
+            >
+              Add to Cart
+            </button>
             <p>{selectedProducts.description}</p>
             <p>{selectedProducts.usage}</p>
           </div>
