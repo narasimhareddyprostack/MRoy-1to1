@@ -13,12 +13,16 @@ import UploadProducts from "./modules/products/components/upload-products/Upload
 import Cart from "./modules/orders/components/cart/Cart";
 import ProductDetails from "./modules/products/components/product-details/ProductDetails";
 import React from "react";
+import Alert from "./modules/layout/components/alert/Alert";
 function App() {
   return (
     <React.Fragment>
       <div className="App">
         <Router>
           <Navbar />
+          <div>
+            <Alert />
+          </div>
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route

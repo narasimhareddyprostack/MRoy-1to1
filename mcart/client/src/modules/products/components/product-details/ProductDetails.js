@@ -18,13 +18,30 @@ let ProductDetails = () => {
   let { selectedProducts } = singleProduct;
   return (
     <React.Fragment>
-      <pre>{JSON.stringify(id)}</pre>
-      <pre>{JSON.stringify(selectedProducts)}</pre>
-      <h1> ProductDetails Page</h1>
+      {/* <pre>{JSON.stringify(id)}</pre> */}
+      {/* <pre>{JSON.stringify(selectedProducts)}</pre> */}
+      <section className="p-3 bg-warning text-center">
+        <div className="container">
+          <div className="row animated zoomInLeft">
+            <div className="col">
+              <p className="h3"> Details: {selectedProducts.name}</p>
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="container">
         <div className="row">
-          <div className="col-md-6">
-            <img src={selectedProducts.image}/>
+          <div className="col-md-5 mt-5">
+            <img src={selectedProducts.image} />
+          </div>
+          <div className="col-md-5 mt-7">
+            <h4> {selectedProducts.name}</h4>
+            <h5> {selectedProducts.brand}</h5>
+            <h5>&#8377; {selectedProducts.price}</h5>
+
+            <button className="btn btn-primary btn-sm">Add to Cart</button>
+            <p>{selectedProducts.description}</p>
+            <p>{selectedProducts.usage}</p>
           </div>
         </div>
       </div>

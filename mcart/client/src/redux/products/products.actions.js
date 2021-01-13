@@ -1,5 +1,6 @@
 //actions : we need to consume the api http://localhost:8000/product/upload
 import axios from "axios";
+import { setAlert } from "../layout/layout.actions";
 
 const UPLOAD_PRODUCT_REQUEST = "UPLOAD_PRODUCT_REQUEST";
 const UPLOAD_PRODUCT_SUCCESS = "UPLOAD_PRODUCT_SUCCESS";
@@ -52,7 +53,8 @@ let uploadProduct = (product, history) => {
         config
       );
       dispatch({ type: UPLOAD_PRODUCT_SUCCESS, payload: response.data });
-      history.push("/products/men");
+      dispatch(setAlert("Product Successfully uploaded", "danger"));
+      history.push("/");
     } catch (error) {
       dispatch({ type: UPLOAD_PRODUCT_FAILURE, payload: error });
     }

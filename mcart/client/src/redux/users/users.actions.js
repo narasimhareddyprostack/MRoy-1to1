@@ -1,4 +1,6 @@
 import axios from "axios";
+import { setAlert } from "../layout/layout.actions";
+
 const LOGIN_REQUEST = "LOGIN_REQUEST";
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGIN_FAILURE = "LOGIN_FAILURE";
@@ -22,6 +24,7 @@ let getLogin = (user, history) => {
         config
       );
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+      dispatch(setAlert("Login Success", "success"));
       history.push("/");
     } catch (error) {
       dispatch({ type: LOGIN_FAILURE, payload: error });
@@ -46,6 +49,8 @@ let getRegistration = (user, history) => {
       );
 
       dispatch({ type: REG_USER_SUCCESS, payload: response.data });
+      //setAlert Action will invoke
+      dispatch(setAlert("Registration Success", "success"));
       history.push("/users/login");
     } catch (error) {
       dispatch({ type: REG_USER_FAILURE, payload: error });
