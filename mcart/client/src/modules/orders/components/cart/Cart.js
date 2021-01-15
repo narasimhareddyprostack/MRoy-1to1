@@ -1,12 +1,25 @@
 import React from "react";
-import imageOne from "../../../../assets/img/products/mens/men_1.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  decrCartItem,
+  incrCartItem,
+} from "../../../../redux/orders/orders.actions";
 
-import { useSelector } from "react-redux";
 let Cart = () => {
+  let dispatch = useDispatch();
   let cartData = useSelector((state) => {
     return state.cart;
   });
   let { cartItems } = cartData;
+
+  let decrQtyHandler = (productId) => {
+    //dispatch action
+    dispatch(decrCartItem(productId));
+  };
+  let incrQtyHandler = (productId) => {
+    //dispatch action
+    dispatch(incrCartItem(productId));
+  };
   return (
     <React.Fragment>
       <section className="p-3 bg-warning text-center">
@@ -20,7 +33,6 @@ let Cart = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8">
-              <pre>{JSON.stringify(cartItems)}</pre>
               <div className="card">
                 <div className="card-header bg-dark text-brains">
                   <p className="h4 text-white"> Cart Items</p>
@@ -36,29 +48,48 @@ let Cart = () => {
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <img
-                            src={cartItems.image}
-                            alt=""
-                            width="50"
-                            height="80"
-                          />
-                        </td>
-                        <td>{cartItems.name}</td>
-                        <td>
-                          <i className="fa fa-minus-circle mx-2">2</i>
-                          <i className="fa fa-plus-circle mx-2"></i>
-                        </td>
-                        <td>&#8377; {cartItems.price}</td>
-                        <td>
-                          <button className="btn btn-danger btn-sm">
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
+
+                    {cartItems.map((cartItem) => {
+                      return (
+                        <tbody key={cartItem._id}>
+                          <tr>
+                            <td>
+                              <img
+                                src={cartItem.image}
+                                alt=""
+                                width="50"
+                                height="80"
+                              />
+                            </td>
+                            <td>{cartItem.name}</td>
+                            <td>
+                              <i
+                                className="fa fa-minus-circle mx-2"
+                                onClick={decrQtyHandler.bind(
+                                  this,
+                                  cartItem._id
+                                )}
+                              >
+                                {cartItem.qty}
+                              </i>
+                              <i
+                                className="fa fa-plus-circle mx-2"
+                                onClick={incrQtyHandler.bind(
+                                  this,
+                                  cartItem._id
+                                )}
+                              ></i>
+                            </td>
+                            <td>&#8377; {cartItem.price}</td>
+                            <td>
+                              <button className="btn btn-danger btn-sm">
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      );
+                    })}
                   </table>
                 </div>
               </div>
@@ -78,7 +109,6 @@ let Cart = () => {
                     Check Out
                   </button>
                   <button className="btn btn-danger btn-sm mt-3">
-                    {" "}
                     shopping...
                   </button>
                 </div>

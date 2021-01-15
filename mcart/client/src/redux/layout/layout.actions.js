@@ -18,4 +18,4 @@ let setAlert = (message, color) => {
     }
   };
 };
-export { REMOVE_ALERT, SET_ALERT, setAlert };
+export { REMOVE_ALERT, SET_ALERT, setAlert};

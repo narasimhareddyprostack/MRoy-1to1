@@ -2,7 +2,8 @@ import {
   ADD_TO_CART_SUCCESS,
   ADD_TO_CART_FAILURE,
   ADD_TO_CART_REQUEST,
-  ADD_TO_CART_FAILIRE,
+  DECR_CART_ITEM,
+  INCR_CART_ITEM,
 } from "./orders.actions";
 
 let initialState = {
@@ -20,15 +21,42 @@ let cartReducer = (state = initialState, action) => {
         loading: true,
       };
     case ADD_TO_CART_SUCCESS:
+      //verifing the cart, items are already is there or not.
+      let exists = state.cartItems.find(
+        (cartItem) => cartItem._id === payload._id
+      );
+      if (!exists) {
+        return {
+          ...state,
+          loading: false,
+          cartItems: [...state.cartItems, payload],
+        };
+      }
+      console.log(".... in Add to Cart Success Reducer", exists);
       return {
         ...state,
-        cartItems: payload,
+        cartItems: [...state.cartItems],
       };
-    case ADD_TO_CART_FAILIRE:
+    case ADD_TO_CART_FAILURE:
       return {
         ...state,
         errorMessage: payload,
       };
+    case INCR_CART_ITEM:
+      let incrIteams = state.cartItems.map((cartItem) => {
+        if (cartItem._id === payload.productId) {
+          return {
+            ...cartItem,
+            qty: cartItem.qty + 1,
+          };
+        }
+      });
+      return {
+        ...state,
+        cartItems: [...incrIteams],
+      };
+    case DECR_CART_ITEM:
+      return {};
     default:
       return state;
   }

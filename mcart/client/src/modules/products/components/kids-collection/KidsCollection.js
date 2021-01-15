@@ -33,7 +33,7 @@ let KidsCollection = () => {
           <div className="row animated zoomInLeft">
             {products.map((product) => {
               return (
-                <div className="col-md-3">
+                <div className="col-md-3" key={product._id}>
                   <div className="card text-center">
                     <div className="card-header bg-white">
                       <Link to={`/product/${product._id}`}>
