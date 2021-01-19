@@ -6,7 +6,11 @@ import {
   REG_USER_FAILURE,
   REG_USER_REQUEST,
   REG_USER_SUCCESS,
+  GET_USER_INFO_REQUEST,
+  GET_USER_INFO_SUCCESS,
+  GET_USER_INFO_FAILURE,
 } from "./users.actions";
+
 let initialState = {
   loading: false,
   user: null,
@@ -54,6 +58,27 @@ let userReducer = (state = initialState, action) => {
         token: null,
         isAuthenticated: false,
         errorMessage: payload,
+      };
+    case GET_USER_INFO_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_USER_INFO_SUCCESS:
+      localStorage.setItem("user", JSON.stringify(payload));
+      return {
+        ...state,
+        loading: false,
+        user: payload,
+        isAuthenticated: true,
+      };
+    case GET_USER_INFO_FAILURE:
+      localStorage.removeItem("user");
+      return {
+        ...state,
+        loading: false,
+        errorMessage: payload,
+        user: null,
       };
     default:
       return state;

@@ -12,9 +12,16 @@ import Register from "./modules/users/components/register/Register";
 import UploadProducts from "./modules/products/components/upload-products/UploadProducts";
 import Cart from "./modules/orders/components/cart/Cart";
 import ProductDetails from "./modules/products/components/product-details/ProductDetails";
-import React from "react";
+
 import Alert from "./modules/layout/components/alert/Alert";
+import React, { useEffect } from "react";
+import { store } from "./redux/store";
+import { getUserInfo } from "./redux/users/users.actions";
 function App() {
+  // to main user data entire the application.
+  useEffect(() => {
+    store.dispatch(getUserInfo);
+  });
   return (
     <React.Fragment>
       <div className="App">

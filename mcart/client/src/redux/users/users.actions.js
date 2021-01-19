@@ -9,6 +9,10 @@ const REG_USER_REQUEST = "REG_USER_REQUEST";
 const REG_USER_SUCCESS = "REG_USER_SUCCESS";
 const REG_USER_FAILURE = "REG_USER_FAILURE";
 
+const GET_USER_INFO_REQUEST = "GET_USER_INFO_REQUEST";
+const GET_USER_INFO_SUCCESS = "GET_USER_INFO_SUCCESS";
+const GET_USER_INFO_FAILURE = "GET_USER_INFO_FAILURE";
+
 let getLogin = (user, history) => {
   return async (dispatch) => {
     try {
@@ -58,6 +62,18 @@ let getRegistration = (user, history) => {
   };
 };
 
+let getUserInfo = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: GET_USER_INFO_REQUEST });
+      let response = await axios.get(`http://localhost:8000/user/`);
+      console.log(response);
+      dispatch({ type: GET_USER_INFO_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: GET_USER_INFO_FAILURE, payload: error });
+    }
+  };
+};
 export {
   getRegistration,
   getLogin,
@@ -67,4 +83,5 @@ export {
   REG_USER_REQUEST,
   REG_USER_SUCCESS,
   REG_USER_FAILURE,
+  getUserInfo,
 };

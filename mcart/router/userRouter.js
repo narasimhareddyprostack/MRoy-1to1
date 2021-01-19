@@ -3,6 +3,8 @@
 const express = require("express");
 //const graphql = require('graphql');
 
+const authenticate = require("../middleware/authenticate");
+
 const router = express.Router();
 
 const bcrypt = require("bcryptjs");
@@ -136,8 +138,18 @@ router.post(
   }
 );
 
-// router.post("/profile");
-// router.get("/");
+/*
+ API : localhost:8000/user/  - api
+ fields: User ID
+*/
+router.get("/",authenticate, async (req, res) => {
+  console.log(authenticate);
+  //get the user info
+  try {
+    let user = await User.findById(req.user.id);
+    res.status(200).json(user);
+  } catch (error) {}
+});
 
 module.exports = router;
 //export default router;
