@@ -4,6 +4,7 @@ import {
   ADD_TO_CART_REQUEST,
   DECR_CART_ITEM,
   INCR_CART_ITEM,
+  DELETE_ITEM_FROM_CART,
 } from "./orders.actions";
 
 let initialState = {
@@ -20,6 +21,7 @@ let cartReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
+
     case ADD_TO_CART_SUCCESS:
       //verifing the cart, items are already is there or not.
       let exists = state.cartItems.find(
@@ -42,6 +44,7 @@ let cartReducer = (state = initialState, action) => {
         ...state,
         errorMessage: payload,
       };
+
     case INCR_CART_ITEM:
       let incrIteams = state.cartItems.map((cartItem) => {
         if (cartItem._id === payload.productId) {
@@ -50,13 +53,36 @@ let cartReducer = (state = initialState, action) => {
             qty: cartItem.qty + 1,
           };
         }
+        return cartItem;
       });
       return {
         ...state,
         cartItems: [...incrIteams],
       };
     case DECR_CART_ITEM:
-      return {};
+      let decrIteams = state.cartItems.map((cartItem) => {
+        if (cartItem._id === payload.productId) {
+          return {
+            ...cartItem,
+            qty: cartItem.qty - 1,
+          };
+        }
+        return cartItem;
+      });
+      return {
+        ...state,
+        cartItems: [...decrIteams],
+      };
+
+    case DELETE_ITEM_FROM_CART:
+      let rCartItems = state.cartItems.filter(
+        (cartItem) => cartItem._id !== payload.productId
+      );
+      console.log("...... In delete Itesm", rCartItems);
+      return {
+        ...state,
+        cartItems: [...rCartItems],
+      };
     default:
       return state;
   }

@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getMensCollection } from "./../../../../redux/products/products.actions";
 import { Link } from "react-router-dom";
+import { addToCart } from "./../../../../redux/orders/orders.actions";
+
 let MensCollection = () => {
+  let history = useHistory();
   //read the redux store state data
   let mensCollection = useSelector((state) => {
     return state["mproducts"];
@@ -15,7 +19,9 @@ let MensCollection = () => {
   useEffect(() => {
     dispatch(getMensCollection());
   }, []);
-
+  let clickAddToCart = (selectedproduct) => {
+    dispatch(addToCart(selectedproduct, "1", history));
+  };
   return (
     <React.Fragment>
       <section className="p-3 bg-warning text-center">
@@ -53,7 +59,10 @@ let MensCollection = () => {
                         </li>
                       </ul>
 
-                      <button className="btn btn-primary btn-sm mt-3">
+                      <button
+                        className="btn btn-primary btn-sm mt-3"
+                        onClick={clickAddToCart.bind(this, product)}
+                      >
                         Add to Cart
                       </button>
                     </div>

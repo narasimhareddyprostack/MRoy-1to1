@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-
+import { useHistory } from "react-router-dom";
+import { addToCart } from "./../../../../redux/orders/orders.actions";
 import { useSelector, useDispatch } from "react-redux";
 import { getWomensCollection } from "./../../../../redux/products/products.actions";
 import { Link } from "react-router-dom";
@@ -8,6 +9,12 @@ let MensCollection = () => {
   let mensCollection = useSelector((state) => {
     return state["mproducts"];
   });
+
+  let history = useHistory();
+  let clickAddToCart = (selectedproduct) => {
+    dispatch(addToCart(selectedproduct, "1", history));
+  };
+
   let { products } = mensCollection;
   //dispatch the actions
   let dispatch = useDispatch();
@@ -52,7 +59,10 @@ let MensCollection = () => {
                         </li>
                       </ul>
 
-                      <button className="btn btn-primary btn-sm mt-3">
+                      <button
+                        className="btn btn-primary btn-sm mt-3"
+                        onClick={clickAddToCart.bind(this, product)}
+                      >
                         Add to Cart
                       </button>
                     </div>

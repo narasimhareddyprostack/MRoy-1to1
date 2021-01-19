@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
+import { addToCart } from "./../../../../redux/orders/orders.actions";
 import { useSelector, useDispatch } from "react-redux";
 import { getKidsCollection } from "./../../../../redux/products/products.actions";
 import { Link } from "react-router-dom";
 let KidsCollection = () => {
+  let history = useHistory();
+  let clickAddToCart = (selectedproduct) => {
+    dispatch(addToCart(selectedproduct, "1", history));
+  };
   //read the redux store state data
   let mensCollection = useSelector((state) => {
     return state["mproducts"];
@@ -52,7 +58,10 @@ let KidsCollection = () => {
                         </li>
                       </ul>
 
-                      <button className="btn btn-primary btn-sm mt-3">
+                      <button
+                        className="btn btn-primary btn-sm mt-3"
+                        onClick={clickAddToCart.bind(this, product)}
+                      >
                         Add to Cart
                       </button>
                     </div>

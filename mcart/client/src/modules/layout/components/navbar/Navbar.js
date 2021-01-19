@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoImage from "../../../../assets/img/pcart.PNG";
+import { useSelector } from "react-redux";
 
 let Navbar = () => {
+  let cartInfo = useSelector((state) => {
+    return state.cart;
+  });
+  let { cartItems } = cartInfo;
+
   return (
     <React.Fragment>
       <nav className="navbar navbar-dark bg-dark navbar-expand">
@@ -36,7 +42,9 @@ let Navbar = () => {
               <li className="nav-item active">
                 <Link to="/orders/cart" className="nav-link">
                   <i className="fa fa-shopping-cart">
-                    <span className="badge badge-success">2</span>
+                    <span className="badge badge-success">
+                      {cartItems.length}
+                    </span>
                   </i>
                 </Link>
               </li>

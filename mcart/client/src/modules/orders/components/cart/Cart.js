@@ -3,15 +3,31 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   decrCartItem,
   incrCartItem,
+  deleteCartItem,
 } from "../../../../redux/orders/orders.actions";
 
 let Cart = () => {
+  let product_Tax = 5.0;
+
   let dispatch = useDispatch();
   let cartData = useSelector((state) => {
     return state.cart;
   });
   let { cartItems } = cartData;
 
+  let calItemsTotal = () => {
+    let result = 0;
+    for (let item of cartItems) {
+      result = result + item.price;
+    }
+    return result;
+  };
+  let calTax = () => {
+    return 0;
+  };
+  let grandTotal = () => {
+    return calTax() + calItemsTotal();
+  };
   let decrQtyHandler = (productId) => {
     //dispatch action
     dispatch(decrCartItem(productId));
@@ -19,6 +35,9 @@ let Cart = () => {
   let incrQtyHandler = (productId) => {
     //dispatch action
     dispatch(incrCartItem(productId));
+  };
+  let deleteClickHandler = (productId) => {
+    dispatch(deleteCartItem(productId));
   };
   return (
     <React.Fragment>
@@ -45,6 +64,7 @@ let Cart = () => {
                         <th>Name</th>
                         <th>Qty</th>
                         <th>Price</th>
+                        <th> Total</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -80,9 +100,17 @@ let Cart = () => {
                                 )}
                               ></i>
                             </td>
+
                             <td>&#8377; {cartItem.price}</td>
+                            <td>&#8377; {cartItem.qty * cartItem.price} </td>
                             <td>
-                              <button className="btn btn-danger btn-sm">
+                              <button
+                                className="btn btn-danger btn-sm"
+                                onClick={deleteClickHandler.bind(
+                                  this,
+                                  cartItem._id
+                                )}
+                              >
                                 Delete
                               </button>
                             </td>
@@ -101,9 +129,13 @@ let Cart = () => {
                 </div>
                 <div className="card-body">
                   <ul className="list-group">
-                    <li className="list-group-item">Price:</li>
-                    <li className="list-group-item">Tax:</li>
-                    <li className="list-group-item">Total:</li>
+                    <li className="list-group-item">
+                      Total: {calItemsTotal()}
+                    </li>
+                    <li className="list-group-item">GST:</li>
+                    <li className="list-group-item">
+                      Grand Total:{grandTotal()}
+                    </li>
                   </ul>
                   <button className="btn btn-primary btn-sm mt-3">
                     Check Out

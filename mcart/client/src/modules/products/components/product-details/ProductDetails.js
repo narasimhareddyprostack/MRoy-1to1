@@ -20,7 +20,7 @@ let ProductDetails = () => {
   let { selectedProducts } = singleProduct;
 
   let addToCartHandler = () => {
-    dispatch(addToCart(selectedProducts, history));
+    dispatch(addToCart(selectedProducts, "1", history));
   };
   return (
     <React.Fragment>
