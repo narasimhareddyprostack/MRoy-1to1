@@ -120,9 +120,8 @@ router.post(
       }
       //create a token
       let payload = {
-        users: {
+        user: {
           id: user.id,
-          email: user.email,
         },
       };
       jwt.sign(payload, process.env.JWT_SECRET_KEY, (err, token) => {
@@ -139,24 +138,22 @@ router.post(
 );
 
 /*
- API : localhost:8000/user/  - api
- fields: User ID
-*/
-router.get("/",authenticate, async (req, res) => {
-  console.log(authenticate);
-  //get the user info
+    3. Get User Info
+    URL	/user/
+    Fields	No-fields
+    Method	GET
+    Access	PRIVATE
+
+ */
+router.get("/", authenticate, async (request, response) => {
+  // Get User Info logic
   try {
-    let user = await User.findById(req.user.id);
-    res.status(200).json(user);
-  } catch (error) {}
+    let user = await User.findById(request.user.id).select("-password");
+    response.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    response.status(500).json({ errors: [{ msg: "Server Error" }] });
+  }
 });
 
 module.exports = router;
-//export default router;
-//www.ecart.com/user/register  - name, email, password
-//www.ecart.com/user/login  -  email, password
-//www.ecart.com/user/  -
-//www.ecart.com/user/profile  - address
-// router.get("/", (req, res) => {
-//   res.send("Inside - first Get request");
-// });
