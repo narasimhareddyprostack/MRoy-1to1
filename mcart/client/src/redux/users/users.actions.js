@@ -27,7 +27,9 @@ let getLogin = (user, history) => {
         JSON.stringify(user),
         config
       );
+      console.log(response);
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+
       dispatch(setAlert("Login Success", "success"));
       history.push("/");
     } catch (error) {
@@ -66,8 +68,9 @@ let getUserInfo = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: GET_USER_INFO_REQUEST });
-      let response = await axios.get(`http://localhost:8000/user/`);
-      console.log(response);
+      let response = await axios.get(`/user/`);
+
+      console.log("......Testing", response);
       dispatch({ type: GET_USER_INFO_SUCCESS, payload: response.data });
     } catch (error) {
       dispatch({ type: GET_USER_INFO_FAILURE, payload: error });
@@ -83,5 +86,8 @@ export {
   REG_USER_REQUEST,
   REG_USER_SUCCESS,
   REG_USER_FAILURE,
+  GET_USER_INFO_REQUEST,
+  GET_USER_INFO_SUCCESS,
+  GET_USER_INFO_FAILURE,
   getUserInfo,
 };

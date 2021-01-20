@@ -17,11 +17,17 @@ import Alert from "./modules/layout/components/alert/Alert";
 import React, { useEffect } from "react";
 import { store } from "./redux/store";
 import { getUserInfo } from "./redux/users/users.actions";
+import { useDispatch } from "react-redux";
 function App() {
+  let dispatch = useDispatch();
   // to main user data entire the application.
+  // useEffect(() => {
+  //   store.dispatch(getUserInfo);
+  // });
+
   useEffect(() => {
-    store.dispatch(getUserInfo);
-  });
+    dispatch(getUserInfo());
+  }, [dispatch]);
   return (
     <React.Fragment>
       <div className="App">

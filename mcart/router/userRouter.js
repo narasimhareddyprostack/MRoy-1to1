@@ -139,7 +139,7 @@ router.post(
 
 /*
     3. Get User Info
-    URL	/user/
+    URL: http://localhost:8000/user/
     Fields	No-fields
     Method	GET
     Access	PRIVATE

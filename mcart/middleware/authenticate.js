@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 
-// JWT Token verification
+// JWT Token verifification
+
 let authenticate = (request, response, next) => {
   if (!request.headers.authorization) {
     return response.status(401).send("Unauthorized Request");
@@ -11,12 +12,10 @@ let authenticate = (request, response, next) => {
     return response.status(401).send("Unauthorized Request");
   }
   let payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
-  console.log(payload);
   if (!payload) {
     return response.status(401).send("Unauthorized Request");
   }
   request.user = payload.user;
   next();
 };
-
 module.exports = authenticate;
