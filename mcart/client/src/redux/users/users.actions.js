@@ -1,5 +1,6 @@
 import axios from "axios";
 import { setAlert } from "../layout/layout.actions";
+import { setAuthToken } from "../Auth/setAuthToken";
 
 const LOGIN_REQUEST = "LOGIN_REQUEST";
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -12,6 +13,8 @@ const REG_USER_FAILURE = "REG_USER_FAILURE";
 const GET_USER_INFO_REQUEST = "GET_USER_INFO_REQUEST";
 const GET_USER_INFO_SUCCESS = "GET_USER_INFO_SUCCESS";
 const GET_USER_INFO_FAILURE = "GET_USER_INFO_FAILURE";
+
+const USER_LOGOUT = "USER_LOGOUT";
 
 let getLogin = (user, history) => {
   return async (dispatch) => {
@@ -57,16 +60,29 @@ let getRegistration = (user, history) => {
       dispatch({ type: REG_USER_SUCCESS, payload: response.data });
       //setAlert Action will invoke
       dispatch(setAlert("Registration Success", "success"));
+
+      if (localStorage.token) {
+        dispatch(getUserInfo());
+      }
       history.push("/users/login");
     } catch (error) {
       dispatch({ type: REG_USER_FAILURE, payload: error });
     }
   };
 };
-
+let logOutAction = (history) => {
+  console.log("Hello, Testing Logout");
+  return (dispatch) => {
+    dispatch({ type: USER_LOGOUT });
+    history.push("/products/men");
+  };
+};
 let getUserInfo = () => {
   return async (dispatch) => {
     try {
+      if (localStorage.token) {
+        setAuthToken(localStorage.getItem("token"));
+      }
       dispatch({ type: GET_USER_INFO_REQUEST });
       let response = await axios.get(`/user/`);
 
@@ -80,6 +96,7 @@ let getUserInfo = () => {
 export {
   getRegistration,
   getLogin,
+  USER_LOGOUT,
   LOGIN_REQUEST,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
@@ -90,4 +107,5 @@ export {
   GET_USER_INFO_SUCCESS,
   GET_USER_INFO_FAILURE,
   getUserInfo,
+  logOutAction,
 };

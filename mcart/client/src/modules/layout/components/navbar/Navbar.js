@@ -1,13 +1,56 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoImage from "../../../../assets/img/pcart.PNG";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logOutAction } from "../../../../redux/users/users.actions";
+import { useHistory } from "react-router-dom";
 
 let Navbar = () => {
+  let dispatch = useDispatch();
+  let history = useHistory();
   let cartInfo = useSelector((state) => {
     return state.cart;
   });
   let { cartItems } = cartInfo;
+
+  let userInfo = useSelector((state) => {
+    return state.userData;
+  });
+  let { loading, isAuthenticated, user } = userInfo;
+
+  let logOutHandler = () => {
+    console.log("Hello, NavBar");
+    dispatch(logOutAction(history));
+  };
+  let beforeLogin = (
+    <React.Fragment>
+      {" "}
+      <li className="nav-item">
+        <Link to="/users/Login" className="nav-link">
+          Login
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/users/register" className="nav-link">
+          Register
+        </Link>
+      </li>
+    </React.Fragment>
+  );
+  let afterLogin = (
+    <React.Fragment>
+      <li className="nav-item">
+        <Link to="/users/Logout" className="nav-link" onClick={logOutHandler}>
+          Logout
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/users/profile" className="nav-link">
+          Profile
+        </Link>
+      </li>
+    </React.Fragment>
+  );
 
   return (
     <React.Fragment>
@@ -15,6 +58,7 @@ let Navbar = () => {
         <div className="container">
           <Link to="/" className="nav-link">
             <p className="h3">ECart</p>
+
             {/* <img src={logoImage} alt="" /> */}
           </Link>
           <div className="collapse navbar-collapse">
@@ -50,21 +94,7 @@ let Navbar = () => {
               </li>
             </ul>
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to="/users/Login" className="nav-link">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/users/register" className="nav-link">
-                  Register
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/users/profile" className="nav-link">
-                  Profile
-                </Link>
-              </li>
+              {!loading && <>{!isAuthenticated ? beforeLogin : afterLogin}</>}
             </ul>
           </div>
         </div>

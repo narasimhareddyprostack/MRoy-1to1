@@ -9,6 +9,7 @@ import {
   GET_USER_INFO_REQUEST,
   GET_USER_INFO_SUCCESS,
   GET_USER_INFO_FAILURE,
+  USER_LOGOUT,
 } from "./users.actions";
 
 let initialState = {
@@ -59,6 +60,16 @@ let userReducer = (state = initialState, action) => {
         isAuthenticated: false,
         errorMessage: payload,
       };
+    case USER_LOGOUT:
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      return {
+        ...state,
+        loading: false,
+        token: null,
+        isAuthenticated: false,
+        user: null,
+      };
     case GET_USER_INFO_REQUEST:
       return {
         ...state,
@@ -70,6 +81,7 @@ let userReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         user: payload,
+
         isAuthenticated: true,
       };
     case GET_USER_INFO_FAILURE:
