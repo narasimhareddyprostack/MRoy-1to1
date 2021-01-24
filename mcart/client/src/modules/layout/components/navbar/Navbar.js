@@ -46,7 +46,7 @@ let Navbar = () => {
       </li>
       <li className="nav-item">
         <Link to="/users/profile" className="nav-link">
-          Profile
+         { user? user.name:''}
         </Link>
       </li>
     </React.Fragment>

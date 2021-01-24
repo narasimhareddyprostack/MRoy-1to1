@@ -148,9 +148,8 @@ router.post(
 router.get("/", authenticate, async (request, response) => {
   // Get User Info logic
   try {
-    let user = await User.findById(request.user.id)
-      .select("-password")
-      .select("-address");
+    let user = await User.findById(request.user.id).select("-password");
+
     response.status(200).json(user);
   } catch (error) {
     console.error(error);

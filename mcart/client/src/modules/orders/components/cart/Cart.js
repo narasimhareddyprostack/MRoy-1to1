@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   decrCartItem,
   incrCartItem,
@@ -137,12 +138,18 @@ let Cart = () => {
                       Grand Total:{grandTotal()}
                     </li>
                   </ul>
-                  <button className="btn btn-primary btn-sm mt-3">
-                    Check Out
-                  </button>
-                  <button className="btn btn-danger btn-sm mt-3">
-                    shopping...
-                  </button>
+                  <div className="mt-4">
+                    <Link
+                      to="/orders/checkout"
+                      className="btn btn-success btn-sm mx-3"
+                    >
+                      Check Out
+                    </Link>
+
+                    <Link to="/" className="btn btn-info btn-sm mx-3">
+                      Continue...
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,0 +1,16 @@
+/*
+import { express } from 'express';
+1. URL :  localhost:8000/payment/pay
+2. Fields:
+3. Method : Post
+4. Access Type : Private
+*/
+const express = require('express');
+const router = express.Router();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
+router.post('/pay', (req,res)=>{
+    const {}
+})
+
+module.exports = router;

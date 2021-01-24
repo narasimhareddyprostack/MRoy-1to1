@@ -18,6 +18,7 @@ import React, { useEffect } from "react";
 import { store } from "./redux/store";
 import { getUserInfo } from "./redux/users/users.actions";
 import { useDispatch } from "react-redux";
+import Checkout from "./modules/orders/components/checkout/Checkout";
 function App() {
   let dispatch = useDispatch();
   // to main user data entire the application.
@@ -45,7 +46,7 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/products/women"
+              path="/"
               component={WomensCollection}
             ></Route>
             <Route
@@ -64,6 +65,7 @@ function App() {
             <Route exact path="/users/profile" component={Profile}></Route>
             <Route exact path="/users/register" component={Register}></Route>
             <Route exact path="/orders/cart" component={Cart}></Route>
+            <Route exact path="/orders/checkout" component={Checkout}></Route>
           </Switch>
         </Router>
       </div>
