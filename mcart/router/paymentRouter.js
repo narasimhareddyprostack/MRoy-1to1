@@ -5,12 +5,14 @@ import { express } from 'express';
 3. Method : Post
 4. Access Type : Private
 */
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
 
 router.post('/pay', (req,res)=>{
     const {}
+    stripe.customers.create({customer => stripe.charges.crate({})}).then().then().catch(err=>console.log(err))
 })
 
 module.exports = router;

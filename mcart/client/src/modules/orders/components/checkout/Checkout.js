@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { StaticRouter } from "react-router-dom";
+
+import StripeCheckout from "react-stripe-checkout";
 
 let Checkout = () => {
   //how to read the cartItems Data?
@@ -24,6 +25,8 @@ let Checkout = () => {
   let calcGrandTotal = () => {
     return calcTotal() + calcTax();
   };
+  let publickey =
+    "pk_test_51ID98xHR2ENZ9pOSS51gM4vtW1Vi6pdYvlnswD7YZF2vhvfO98kEIgbKOX0k3TZAyFi9O5Qa9rVBaOqyL0fA6xZU009DStZlJC";
 
   return (
     <React.Fragment>
@@ -105,10 +108,17 @@ let Checkout = () => {
                       Grand Total: &#8377; {calcGrandTotal()}
                     </li>
                   </ul>
-
-                  <button className="btn btn-success btn-block btn-sm mt-2">
-                    Pay Now &#8377; {calcGrandTotal()}
-                  </button>
+                  <StripeCheckout
+                    stripeKey={publickey}
+                    name="Stripe Payment"
+                    amount={calcGrandTotal()}
+                    desc="Testing"
+                    currency="inr"
+                  >
+                    <button className="btn btn-success btn-block btn-sm mt-2">
+                      Pay Now &#8377; {calcGrandTotal()}
+                    </button>
+                  </StripeCheckout>
                 </div>
               </div>
             </div>
